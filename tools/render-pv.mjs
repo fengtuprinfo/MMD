@@ -36,7 +36,16 @@ const wanted = argv.filter(a => !a.startsWith('--'));
 if (!chrome) throw new Error('找不到 Chrome，請用 --chrome <路徑> 指定');
 await mkdir(outDir, { recursive: true });
 
-const server = await createServer({ root, logLevel: 'error', server: { port: 5199, strictPort: false, host: '127.0.0.1' } });
+const server = await createServer({
+  root,
+  logLevel: 'error',
+  server: {
+    port: 5199, strictPort: false, host: '127.0.0.1',
+    // Rendering and preparing release assets must not trigger file watching on
+    // growing MP4s, which can be locked by ffmpeg or file copies on Windows.
+    watch: { ignored: [resolve(root, 'pv', '**').replaceAll('\\', '/'), `${outDir.replaceAll('\\', '/')}/**`] },
+  },
+});
 await server.listen();
 const base = server.resolvedUrls.local[0];
 
