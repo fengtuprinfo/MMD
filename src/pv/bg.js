@@ -312,7 +312,7 @@ export function createBackground(W, H, style, seed) {
     ctx.fillStyle = '#c0392b';
     ctx.font = `800 ${s * 0.6}px ${SANS}`;
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText('頭獎', 0, s * 0.25);
+    ctx.fillText(style.ticketLabel ?? '頭獎', 0, s * 0.25, s * 2.4);
   }
   function drawNote(ctx, s, color) {
     ctx.fillStyle = color;

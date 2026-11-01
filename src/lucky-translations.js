@@ -7,13 +7,47 @@ const cast = [
   { name: '牙妹', modelId: 5 },
 ];
 const staging = [
-  { title: '招財喵 · 生日祝福', theme: 'rose', action: 'rally', moves: ['paw', 'cheer', 'heart', 'clap'], prop: '🎂 鋒兄三十七歲生日快樂' },
-  { title: '塗哥選號 · 中獎', theme: 'violet', action: 'jackpot', moves: ['write', 'cash', 'cheer', 'cash'], prop: '🎟 威力彩頭獎 · 分紅兩千零二十五萬' },
-  { title: '雙家到場 · 見證', theme: 'blue', action: 'tease', moves: ['royal', 'heart', 'clap', 'bow'] },
-  { title: '再唱一次 · 幸福播撒', theme: 'rose', action: 'rally', moves: ['cash', 'paw', 'cheer', 'reach'], prop: '🐾 招財喵布布把幸福播撒 🐾' },
+  { theme: 'rose', action: 'rally', moves: ['paw', 'cheer', 'heart', 'clap'] },
+  { theme: 'violet', action: 'jackpot', moves: ['write', 'cash', 'cheer', 'cash'] },
+  { theme: 'blue', action: 'tease', moves: ['royal', 'heart', 'clap', 'bow'] },
+  { theme: 'rose', action: 'rally', moves: ['cash', 'paw', 'cheer', 'reach'] },
 ];
 
+const stageCopy = {
+  en: {
+    chapters: [
+      { title: 'Lucky Cat · Birthday Wishes', prop: '🎂 Happy 37th Birthday, Feng!' },
+      { title: 'Tu’s Numbers · Jackpot', prop: '🎟 Power Lotto Jackpot · Share: 20,250,000' },
+      { title: 'Both Families · Together' },
+      { title: 'Encore · Sharing Joy', prop: '🐾 Lucky cat Bu Bu spreads joy far and wide 🐾' },
+    ],
+    outro: '— Good Luck Every Day —',
+    ending: 'Show complete · Good Luck Every Day',
+  },
+  ja: {
+    chapters: [
+      { title: '招き猫 · 誕生日の祝福', prop: '🎂 フェン、37歳のお誕生日おめでとう！' },
+      { title: 'トゥの番号 · 大当たり', prop: '🎟 パワーロト1等 · 分け前2,025万円' },
+      { title: '両家の集い · 笑顔のひととき' },
+      { title: 'アンコール · 幸せを届けよう', prop: '🐾 招き猫ブブが幸せを届ける 🐾' },
+    ],
+    outro: '— 福と幸せをいつまでも —',
+    ending: '終演 · 福と幸せをいつまでも',
+  },
+  yue: {
+    chapters: [
+      { title: '招財喵 · 齊齊慶生', prop: '🎂 鋒兄，三十七歲生日快樂！' },
+      { title: '塗哥揀號 · 中頭獎', prop: '🎟 威力彩頭獎 · 分紅兩千零二十五萬' },
+      { title: '兩家人 · 齊齊到場' },
+      { title: '再唱一次 · 齊享幸福', prop: '🐾 招財喵布布將幸福播灑 🐾' },
+    ],
+    outro: '— 謝幕 · 好運日日有 —',
+    ending: '演出完滿結束 · 好運日日有',
+  },
+};
+
 function translation({ language, label, sourceUrl, times, verses }) {
+  const copy = stageCopy[language];
   return {
     id: `s102-${language}`,
     title: `統一發票頭獎得主鋒兄威力彩頭獎得主塗哥(${label}歌詞)`,
@@ -23,10 +57,11 @@ function translation({ language, label, sourceUrl, times, verses }) {
     language,
     audio: `/audio/s102-${language}.mp3`,
     bpm: 117,
-    outro: '— 謝幕 · 中獎是日常 —',
+    outro: copy.outro,
+    ending: copy.ending,
     cast,
     couples: false,
-    chapters: staging.map((chapter, i) => ({ ...chapter, lines: verses[i] })),
+    chapters: staging.map((chapter, i) => ({ ...chapter, ...copy.chapters[i], lines: verses[i] })),
     times,
   };
 }
