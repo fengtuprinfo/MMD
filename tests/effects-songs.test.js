@@ -2,15 +2,17 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
 import { effectsSongs } from '../src/effects-songs.js';
+import { luckyTranslations } from '../src/lucky-translations.js';
 import { flattenLyrics, cueAt, chapterTime, actorPose } from '../src/song-data.js';
 import { timedCue } from '../src/lrc.js';
 import { dancePose } from '../src/dance.js';
 
 const actions = new Set(['tease', 'rally', 'jackpot']);
+const catalogue = [...effectsSongs, ...luckyTranslations];
 
 test('every imported song has matching timings, a bundled MP3 and a valid cast', () => {
   assert.equal(effectsSongs.length, 8);
-  for (const song of effectsSongs) {
+  for (const song of catalogue) {
     const lyrics = flattenLyrics(song.chapters);
     assert.equal(song.times.length, lyrics.length, song.id);
     assert.ok(song.times.every((t, i) => i === 0 || t > song.times[i - 1]), `${song.id}: times strictly increase`);
@@ -23,7 +25,7 @@ test('every imported song has matching timings, a bundled MP3 and a valid cast',
 });
 
 test('each synced lyric line is reachable and chapters start where their first line starts', () => {
-  for (const song of effectsSongs) {
+  for (const song of catalogue) {
     const lyrics = flattenLyrics(song.chapters);
     const cues = song.times.map((time, i) => ({ time, text: lyrics[i].text }));
     const end = song.times.at(-1) + 10;
@@ -49,7 +51,7 @@ test('the rally action poses and dances with finite values', () => {
 test('every chapter of every song names only known dance moves', async () => {
  const { danceNames } = await import('../src/dance.js');
  const { chapters } = await import('../src/song-data.js');
- for (const [id, list] of [['wedding', chapters], ...effectsSongs.map(s => [s.id, s.chapters])]) {
+ for (const [id, list] of [['wedding', chapters], ...catalogue.map(s => [s.id, s.chapters])]) {
   list.forEach((c, i) => {
    assert.ok(Array.isArray(c.moves) && c.moves.length > 0, `${id} ${i}`);
    c.moves.forEach(m => assert.ok(danceNames[m], `${id} ${i}: ${m}`));

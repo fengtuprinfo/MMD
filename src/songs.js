@@ -4,6 +4,7 @@ import weddingLrc from './wedding.lrc?raw';
 import { parseLrc } from './lrc.js';
 import { chapters, lyrics, cast, flattenLyrics } from './song-data.js';
 import { effectsSongs } from './effects-songs.js';
+import { luckyTranslations } from './lucky-translations.js';
 import { performanceModelIds } from './models.js';
 
 export function buildSong({ times, ...song }) {
@@ -31,5 +32,5 @@ const wedding = {
 };
 if (wedding.times.length !== lyrics.length) throw new Error('LRC 與分鏡句數不符');
 
-export const songs = [wedding, ...effectsSongs].map(buildSong);
+export const songs = [wedding, ...effectsSongs, ...luckyTranslations].map(buildSong);
 export const songById = id => songs.find(song => song.id === id);

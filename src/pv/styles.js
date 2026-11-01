@@ -80,6 +80,7 @@ export const pvStyles = {
 const moodOf = { tease: 'calm', proposal: 'calm', intro: 'calm', dance: 'hot', rally: 'hot', wedding: 'hot', jackpot: 'gold' };
 
 export function styleFor(songId) {
+  if (['s102-en', 's102-ja', 's102-yue'].includes(songId)) return pvStyles.s102;
   return pvStyles[songId] ?? pvStyles.s023;
 }
 

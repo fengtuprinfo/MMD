@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { buildTimeline, findAt } from '../src/pv/timeline.js';
 import { effectsSongs } from '../src/effects-songs.js';
+import { luckyTranslations } from '../src/lucky-translations.js';
 import { chapters, flattenLyrics } from '../src/song-data.js';
 import { parseLrc } from '../src/lrc.js';
 import { lyricPlate, LYRIC_BAND, MAX_GLYPH, PLATE_WIDTH } from '../src/pv/type.js';
@@ -16,7 +17,7 @@ function asSong(raw) {
 const weddingTimes = parseLrc(readFileSync(new URL('../src/wedding.lrc', import.meta.url), 'utf8')).map(cue => cue.time);
 const songs = [
   asSong({ id: 'wedding', title: 'wedding', chapters, times: weddingTimes }),
-  ...effectsSongs.map(asSong),
+  ...[...effectsSongs, ...luckyTranslations].map(asSong),
 ];
 
 test('every lyric uses the same plate and stays up until the next line', () => {
