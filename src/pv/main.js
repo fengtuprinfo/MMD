@@ -590,10 +590,53 @@ const scrub = document.getElementById('scrub');
 const elapsedLabel = document.getElementById('elapsed');
 const totalLabel = document.getElementById('total');
 const playButton = document.getElementById('play');
+const previousButton = document.getElementById('previous');
+const nextButton = document.getElementById('next');
+const volumeSlider = document.getElementById('volume');
+const volumeValue = document.getElementById('volume-value');
+const muteButton = document.getElementById('mute');
 const audio = new Audio();
+const volumeStorageKey = 'hyperstage-pv-volume';
+if (!renderMode) {
+  try {
+    const saved = JSON.parse(localStorage.getItem(volumeStorageKey));
+    if (typeof saved?.volume === 'number' && Number.isFinite(saved.volume)) audio.volume = clamp(saved.volume, 0, 1);
+    audio.muted = saved?.muted === true;
+  } catch { /* Playback still works when browser storage is unavailable. */ }
+}
 let raf = 0;
 let scrubbing = false;
 let playToken = 0;
+
+function paintVolume() {
+  const silent = audio.muted || audio.volume === 0;
+  volumeSlider.value = String(audio.volume);
+  volumeValue.value = `${Math.round((audio.muted ? 0 : audio.volume) * 100)}%`;
+  muteButton.textContent = silent ? '🔇' : audio.volume < 0.5 ? '🔉' : '🔊';
+  muteButton.setAttribute('aria-label', silent ? '取消靜音' : '靜音');
+  muteButton.setAttribute('aria-pressed', String(silent));
+  muteButton.title = `${silent ? '取消靜音' : '靜音'} (M)`;
+}
+
+function saveVolume() {
+  paintVolume();
+  try {
+    localStorage.setItem(volumeStorageKey, JSON.stringify({ volume: audio.volume, muted: audio.muted }));
+  } catch { /* Volume changes also work without persistent storage. */ }
+}
+
+function toggleMute() {
+  if (audio.volume === 0) { audio.volume = 1; audio.muted = false; }
+  else audio.muted = !audio.muted;
+  saveVolume();
+}
+
+function stepSong(direction) {
+  if (!current || transport.hidden) return;
+  const index = songs.findIndex(song => song.id === current.song.id);
+  const next = songs[index + direction];
+  if (next) play(next.id);
+}
 
 function formatTime(seconds) {
   if (!Number.isFinite(seconds) || seconds < 0) return '0:00';
@@ -618,6 +661,9 @@ function paintTransport() {
   elapsedLabel.textContent = formatTime(time);
   totalLabel.textContent = formatTime(duration);
   playButton.textContent = audio.paused ? '播放' : '暫停';
+  const index = songs.findIndex(song => song.id === current?.song.id);
+  previousButton.disabled = index <= 0;
+  nextButton.disabled = index < 0 || index >= songs.length - 1;
 }
 
 function seek(time) {
@@ -687,6 +733,15 @@ if (!renderMode) {
     if (button) play(button.dataset.song);
   });
   document.getElementById('back').addEventListener('click', showMenu);
+  previousButton.addEventListener('click', () => stepSong(-1));
+  nextButton.addEventListener('click', () => stepSong(1));
+  volumeSlider.addEventListener('input', () => {
+    audio.volume = Number(volumeSlider.value);
+    audio.muted = false;
+    saveVolume();
+  });
+  muteButton.addEventListener('click', toggleMute);
+  paintVolume();
   document.getElementById('rewind').addEventListener('click', () => seek((audio.currentTime || 0) - 5));
   document.getElementById('forward').addEventListener('click', () => seek((audio.currentTime || 0) + 5));
   playButton.addEventListener('click', togglePlayback);
@@ -701,6 +756,9 @@ if (!renderMode) {
     if (event.key === ' ') { event.preventDefault(); togglePlayback(); }
     if (event.key === 'ArrowRight') seek((audio.currentTime || 0) + 5);
     if (event.key === 'ArrowLeft') seek((audio.currentTime || 0) - 5);
+    if (event.key.toLowerCase() === 'p') stepSong(-1);
+    if (event.key.toLowerCase() === 'n') stepSong(1);
+    if (event.key.toLowerCase() === 'm') toggleMute();
     if (event.key === 'Escape') showMenu();
   });
   const id = params.get('song');

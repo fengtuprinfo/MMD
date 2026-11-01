@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HyperStage PV</title>
 <style>
-  :root { color-scheme: dark; font-family: "PingFang TC", "Noto Sans TC", sans-serif; }
+  :root { color-scheme: dark; font-family: "PingFang TC", "Noto Sans TC", sans-serif; --transport-space: 118px; }
   html, body { margin: 0; height: 100%; background: #0b0910; color: #f3ecff; overflow: hidden; }
   /* Sit the frame above the transport so the lyric band and the cast's feet stay visible. */
-  #out { position: absolute; left: 0; right: 0; top: 0; margin-inline: auto; width: min(100vw, calc((100dvh - 118px) * 16 / 9)); aspect-ratio: 16 / 9; height: auto; max-height: calc(100dvh - 118px); display: block; background: #000; }
+  #out { position: absolute; left: 0; right: 0; top: 0; margin-inline: auto; width: min(100vw, calc((100dvh - var(--transport-space) - env(safe-area-inset-bottom, 0px)) * 16 / 9)); aspect-ratio: 16 / 9; height: auto; max-height: calc(100dvh - var(--transport-space) - env(safe-area-inset-bottom, 0px)); display: block; background: #000; }
   #gl { position: absolute; left: -99999px; top: 0; }
   /* The song list is taller than a phone. Body stays locked so the player
      does not scroll; this overlay is the scroll container. margin: auto
@@ -25,7 +25,7 @@
   #list strong { display: block; margin: 4px 0; font-size: 15px; }
   #menu .v2 { display: inline-block; margin-top: 18px; color: #d8c6ff; font-size: 14px; text-decoration: none; border: 1px solid #4a3d66; border-radius: 999px; padding: 8px 16px; }
   #menu .v2:hover { border-color: #bca8ff; background: #2d2440; }
-  #status { position: absolute; left: 16px; right: 16px; bottom: calc(118px + env(safe-area-inset-bottom, 0px)); font-size: 12px; color: #c9b8e6; z-index: 3; text-shadow: 0 1px 4px #000; pointer-events: none; }
+  #status { position: absolute; left: 16px; right: 16px; bottom: calc(var(--transport-space) + env(safe-area-inset-bottom, 0px)); font-size: 12px; color: #c9b8e6; z-index: 3; text-shadow: 0 1px 4px #000; pointer-events: none; }
   #transport { position: fixed; z-index: 4; left: 0; right: 0; bottom: 0; display: grid; gap: 6px; padding: 8px 16px calc(12px + env(safe-area-inset-bottom, 0px)); background: linear-gradient(#0b091000, #0b0910 24px); }
   #transport[hidden] { display: none; }
   #transport input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 36px; margin: 0; background: transparent; touch-action: none; accent-color: #bca8ff; }
@@ -33,11 +33,26 @@
   #transport input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: -8px; border: 0; border-radius: 50%; background: #bca8ff; }
   #transport input[type="range"]::-moz-range-track { height: 6px; background: #3d3153; border: 0; border-radius: 999px; }
   #transport input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border: 0; border-radius: 50%; background: #bca8ff; }
-  #transport .controls { display: flex; align-items: center; gap: 8px; }
+  #transport .timeline, #transport .controls, #transport .track-controls, #transport .seek-controls, #transport .volume-controls { display: flex; align-items: center; gap: 8px; }
+  #transport .timeline input { flex: 1; min-width: 0; }
+  #transport .controls { flex-wrap: wrap; }
+  #transport .track-controls { margin-right: auto; }
+  #transport .volume-controls { flex: 0 1 240px; min-width: 160px; }
+  #transport #volume { flex: 1; min-width: 40px; width: auto; }
+  #volume-value { min-width: 4ch; font-size: 12px; text-align: right; font-variant-numeric: tabular-nums; }
   #transport button { font: inherit; color: inherit; background: #221b30; border: 1px solid #3d3153; border-radius: 999px; min-width: 52px; min-height: 44px; padding: 8px 12px; }
   #transport button:hover { border-color: #bca8ff; background: #2d2440; }
+  #transport button:disabled { opacity: .4; cursor: default; }
+  #transport button:focus-visible, #transport input:focus-visible { outline: 2px solid #bca8ff; outline-offset: 2px; }
   #transport button.play { background: #bca8ff; color: #221c37; border-color: #bca8ff; font-weight: 700; }
   #clock { margin-left: auto; color: #c9b8e6; font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  @media (max-width: 900px) {
+    :root { --transport-space: 178px; }
+    #transport { padding-inline: 12px; }
+    #transport .track-controls { flex-basis: 100%; justify-content: center; margin-right: 0; }
+    #transport .volume-controls { flex: 1; }
+    #transport button { min-width: 44px; padding-inline: 10px; font-size: 13px; }
+  }
 </style>
 </head>
 <body>
@@ -45,20 +60,33 @@
 <div id="menu" hidden>
   <div class="inner">
     <h1>HyperStage PV</h1>
-    <p>選一首歌即時播放。拖時間軸或點 −5／+5 快轉；鍵盤可用 Space、← →、Esc。成品 MP4 請用 <code>npm run pv</code> 逐格輸出。</p>
+    <p>選一首歌即時播放。可切換上一首／下一首、拖時間軸、調整音量；鍵盤可用 Space、← →、P／N 換歌、M 靜音、Esc 選單。</p>
     <div id="list"></div>
     <a class="v2" href="./v2.html">第二版本：3D 編輯器與歌詞劇場 →</a>
   </div>
 </div>
 <div id="status"></div>
 <div id="transport" hidden>
-  <input id="scrub" type="range" min="0" max="0" value="0" step="0.1" aria-label="時間軸">
-  <div class="controls">
-    <button type="button" id="back">選單</button>
-    <button type="button" id="rewind" aria-label="倒退 5 秒">−5</button>
-    <button type="button" id="play" class="play">播放</button>
-    <button type="button" id="forward" aria-label="快轉 5 秒">+5</button>
+  <div class="timeline">
+    <input id="scrub" type="range" min="0" max="0" value="0" step="0.1" aria-label="時間軸">
     <span id="clock"><span id="elapsed">0:00</span> / <span id="total">0:00</span></span>
+  </div>
+  <div class="controls">
+    <div class="track-controls">
+      <button type="button" id="back">選單</button>
+      <button type="button" id="previous" title="上一首 (P)">⏮ 上一首</button>
+      <button type="button" id="play" class="play">播放</button>
+      <button type="button" id="next" title="下一首 (N)">下一首 ⏭</button>
+    </div>
+    <div class="seek-controls">
+      <button type="button" id="rewind" aria-label="倒退 5 秒">−5</button>
+      <button type="button" id="forward" aria-label="快轉 5 秒">+5</button>
+    </div>
+    <div class="volume-controls">
+      <button type="button" id="mute" aria-label="靜音" title="靜音 (M)" aria-pressed="false">🔊</button>
+      <input id="volume" type="range" min="0" max="1" value="1" step="0.01" aria-label="音量">
+      <output id="volume-value" for="volume">100%</output>
+    </div>
   </div>
 </div>
 <script type="module" src="/src/pv/main.js"></script>
