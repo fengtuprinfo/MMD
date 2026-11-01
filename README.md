@@ -112,3 +112,11 @@ npm run pv:compress                          # 每支壓到 92 MB 以下（原�
 ```
 
 `tools/render-pv.mjs` 啟動 Vite、用無頭 Chrome 逐格呼叫 `window.PV.frame(t)`，把 JPEG 串流交給 ffmpeg（libx264 CRF 21、AAC 192k）並合併原曲。每格只依時間計算，可平行輸出（`--jobs`，預設 2）；已完成的影片會略過，某首崩潰時自動重試最多 3 次。設定在 `src/pv/`：`styles.js` 各曲配色與粒子、`timeline.js` 分鏡與字卡模式、`bg.js` 背景、`type.js` 字卡、`toon.js` 卡通著色。
+
+渲染器依系統選用 GPU 後端：Windows 使用 Direct3D 11、macOS 使用 Metal、其他系統使用 Chrome 預設後端。
+
+完整 MP4 下載：[GitHub PV Release](https://github.com/goldshoot0720/MMD/releases/tag/pv-v1)。新增三個語言版本使用各自語言的舞台字卡，均為 1920×1080、30 fps、H.264／AAC：
+
+- [英文版（PV 10）](https://github.com/goldshoot0720/MMD/releases/download/pv-v1/pv10-s102-en.mp4)
+- [日文版（PV 11）](https://github.com/goldshoot0720/MMD/releases/download/pv-v1/pv11-s102-ja.mp4)
+- [粵文版（PV 12）](https://github.com/goldshoot0720/MMD/releases/download/pv-v1/pv12-s102-yue.mp4)

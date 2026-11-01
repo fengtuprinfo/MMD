@@ -47,7 +47,11 @@ async function openPage() {
     executablePath: chrome,
     headless: true,
     protocolTimeout: 0,
-    args: ['--use-angle=metal', '--enable-gpu', '--ignore-gpu-blocklist', '--enable-webgl', '--disable-background-timer-throttling', '--disable-renderer-backgrounding', '--disable-backgrounding-occluded-windows'],
+    args: [
+      ...(process.platform === 'darwin' ? ['--use-angle=metal'] : process.platform === 'win32' ? ['--use-angle=d3d11'] : []),
+      '--enable-gpu', '--ignore-gpu-blocklist', '--enable-webgl',
+      '--disable-background-timer-throttling', '--disable-renderer-backgrounding', '--disable-backgrounding-occluded-windows',
+    ],
   });
   browsers.push(browser);
   const [page] = await browser.pages();
