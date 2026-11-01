@@ -115,8 +115,4 @@ npm run pv:compress                          # 每支壓到 92 MB 以下（原�
 
 渲染器依系統選用 GPU 後端：Windows 使用 Direct3D 11、macOS 使用 Metal、其他系統使用 Chrome 預設後端。
 
-完整 MP4 下載：[GitHub PV Release](https://github.com/goldshoot0720/MMD/releases/tag/pv-v1)。新增三個語言版本使用各自語言的舞台字卡，均為 1920×1080、30 fps、H.264／AAC：
-
-- [英文版（PV 10）](https://github.com/goldshoot0720/MMD/releases/download/pv-v1/pv10-s102-en.mp4)
-- [日文版（PV 11）](https://github.com/goldshoot0720/MMD/releases/download/pv-v1/pv11-s102-ja.mp4)
-- [粵文版（PV 12）](https://github.com/goldshoot0720/MMD/releases/download/pv-v1/pv12-s102-yue.mp4)
+原有完整 MP4：[GitHub PV Release](https://github.com/goldshoot0720/MMD/releases/tag/pv-v1)。新增三個語言版本先放在 [Releases](https://github.com/goldshoot0720/MMD/releases) 的 `pv-multilang-20261101` 草稿中，保留 Draft 狀態待確認後發布。三支皆使用各自語言的舞台字卡，規格為 1920×1080、30 fps、H.264／AAC；檔名為 `pv10-s102-en.mp4`（英文）、`pv11-s102-ja.mp4`（日文）、`pv12-s102-yue.mp4`（粵文）。
