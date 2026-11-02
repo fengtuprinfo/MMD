@@ -24,6 +24,20 @@ test('rigs without supported bones degrade safely',()=>{
  const dancer=createDancer(new THREE.Group());assert.equal(dancer.supported,false);assert.equal(dancer.apply(12),null);dancer.reset();
 });
 
+test('paw styling preserves footwork and stays continuous when seeking or changing intensity',()=>{
+ for(const intensity of [.3,.85,1])for(const action of ['intro','rally','jackpot','tease']){
+  for(let t=0;t<140;t+=.137){
+   const options={action,index:1,intensity,bpm:116,style:'paws'};
+   const styled=dancePose(t,options),normal=dancePose(t,{...options,style:undefined});
+   assert.ok(values(styled).every(v=>Number.isFinite(v)&&Math.abs(v)<Math.PI));
+   for(const joint of ['Hips','LeftLeg','RightLeg','LeftFoot','RightFoot'])assert.deepEqual(styled.pose[joint],normal.pose[joint]);
+   const next=dancePose(t+1e-5,options);
+   assert.ok(values(styled).every((v,i)=>Math.abs(v-values(next)[i])<.001));
+   assert.deepEqual(dancePose(t,options),styled);
+  }
+ }
+});
+
 test('extended choreography has distinct footwork and expressive arms throughout its cycle',()=>{
  const feet=new Set(),arms=new Set();
  for(let phrase=0;phrase<8;phrase++){

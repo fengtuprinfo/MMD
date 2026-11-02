@@ -238,7 +238,7 @@ def main(effects):
             'audio': f'/audio/{sid}.mp3',
             'bpm': round(data['analysis']['bpm']),
             'outro': spec['outro'],
-            'cast': [{'name': n, 'modelId': C[n]} for n in spec['cast']],
+            'cast': [{'name': n, 'modelId': C[n], **({'danceStyle': 'paws'} if sid == 's102' and n == '喵布布' else {})} for n in spec['cast']],
             'couples': False,
             'chapters': chapters,
             'times': times,

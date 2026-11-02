@@ -862,7 +862,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
         performer.clear();
         const model = instantiateAsset(assets[i]);
         performer.add(model);
-        dancers.push(createDancer(model));
+        dancers.push(createDancer(model, { style: ids[i] === 12 ? song.cast[i].danceStyle : undefined }));
         const mixer = assets[i].animations.length ? new THREE.AnimationMixer(model) : null;
         for (const clip of assets[i].animations) mixer.clipAction(clip).play();
         mixers.push(mixer);

@@ -1363,7 +1363,8 @@ export const effectsSongs = [
    },
    {
     "name": "喵布布",
-    "modelId": 12
+    "modelId": 12,
+    "danceStyle": "paws"
    },
    {
     "name": "塗哥",

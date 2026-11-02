@@ -2,7 +2,7 @@
 // Keep these separate from effects-songs.js so re-importing Effects preserves them.
 const cast = [
   { name: '鋒兄', modelId: 10 },
-  { name: '喵布布', modelId: 12 },
+  { name: '喵布布', modelId: 12, danceStyle: 'paws' },
   { name: '塗哥', modelId: 11 },
   { name: '咕咕嘎嘎', modelId: 6 },
   { name: 'GPT 娘', modelId: 13 },

@@ -123,7 +123,7 @@ function motif(name,beat,index){
  }
  return p;
 }
-export function dancePose(time,{action='dance',moves,bpm=120,offset=0,index=0,intensity=1}={}){
+export function dancePose(time,{action='dance',moves,bpm=120,offset=0,index=0,intensity=1,style}={}){
  const beat=Math.max(0,(time-(action==='intro'?0:offset))*bpm/60),phrase=Math.floor(beat/8),fraction=beat%8;
  const sequence=moves?.length?moves:sequences[action]||sequences.dance;
  const name=sequence[phrase%sequence.length],next=sequence[(phrase+1)%sequence.length];
@@ -133,12 +133,22 @@ export function dancePose(time,{action='dance',moves,bpm=120,offset=0,index=0,in
   const neutral=key.endsWith('Arm')&&!key.endsWith('ForeArm')&&i===2?(key.startsWith('Left')?-1.2:1.2):0;
   return neutral+(v-neutral)*intensity;
  });
+ // Bu Bu's authored arms already slope down. Keep the paws in front of the hoodie
+ // instead of applying the full T-pose arm drop used by the other characters.
+ if(style==='paws'){
+  for(const [side,sign] of [['Left',1],['Right',-1]]){
+   const wave=Math.sin(beat*Math.PI+sign*.6)*intensity;
+   pose[side+'Arm']=[.08*intensity,-sign*.7,sign*(.25+.08*wave)];
+   pose[side+'ForeArm']=[-1.1,-sign*(.8+.12*wave),sign*.55];
+   pose[side+'Hand']=[-.25+.12*wave,0,sign*.1*wave];
+  }
+ }
  return {pose,name:danceNames[name]};
 }
 
 // Convert character-space rotation deltas to each bone's original parent axes.
 // Never accumulate rotations: seeking and reverse scrubbing give identical poses.
-export function createDancer(root){
+export function createDancer(root,{style}={}){
  root.updateWorldMatrix(true,true);
  const inverseRoot=root.getWorldQuaternion(new THREE.Quaternion()).invert(),joints=new Map();
  root.traverse(bone=>{if(!bone.isBone)return;const name=bone.name.replace(/^.*mixamorig[:_]?/i,'');
@@ -152,6 +162,7 @@ export function createDancer(root){
  const q=new THREE.Quaternion(),euler=new THREE.Euler();
  return {supported,apply(time,options={}){
   if(!supported)return null;
+  options={...options,style:style??options.style};
   const result=dancePose(time,options);
   if(options.previousAction&&options.transition<1){const previous=dancePose(time,{...options,action:options.previousAction,moves:options.previousMoves});result.pose=blend(previous.pose,result.pose,smooth(options.transition));}
   for(const {bone,rest} of joints.values())bone.quaternion.copy(rest);

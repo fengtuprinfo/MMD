@@ -208,7 +208,7 @@ async function load(id) {
     performer.clear();
     const model = toonify(instantiateAsset(loaded[i]));
     performer.add(model);
-    dancers.push(createDancer(model));
+    dancers.push(createDancer(model, { style: ids[i] === 12 ? song.cast[i].danceStyle : undefined }));
   });
   await texturesReady();
   const timeline = buildTimeline(song, analysis.duration);
