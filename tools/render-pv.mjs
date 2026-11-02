@@ -75,7 +75,7 @@ const probe = await openPage();
 const catalogue = await probe.evaluate(() => window.PV.songs);
 await probe.browser().close();
 const queue = catalogue
-  .map((song, i) => ({ ...song, number: i + 1 }))
+  .map((song, i) => ({ ...song, number: song.pvNumber ?? i + 1 }))
   .filter(song => !wanted.length || wanted.includes(song.id));
 if (!queue.length) throw new Error(`沒有符合的歌曲：${wanted.join(', ')}`);
 

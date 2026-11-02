@@ -80,10 +80,11 @@ export const pvStyles = {
 const moodOf = { tease: 'calm', proposal: 'calm', intro: 'calm', dance: 'hot', rally: 'hot', wedding: 'hot', jackpot: 'gold' };
 
 export function styleFor(songId) {
-  if (songId === 's102-en') return { ...pvStyles.s102, ticketLabel: 'JACKPOT' };
-  if (songId === 's102-ja') return { ...pvStyles.s102, ticketLabel: '1等' };
-  if (songId === 's102-yue') return pvStyles.s102;
-  return pvStyles[songId] ?? pvStyles.s023;
+  const baseId = songId.replace(/-(en|ja|yue)$/, '');
+  const style = pvStyles[baseId] ?? pvStyles.s023;
+  if (songId.endsWith('-en')) return { ...style, ticketLabel: 'JACKPOT' };
+  if (songId.endsWith('-ja')) return { ...style, ticketLabel: '1等' };
+  return style;
 }
 
 export function moodFor(style, action) {

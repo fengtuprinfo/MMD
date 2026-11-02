@@ -77,9 +77,25 @@ npm run dev
 
 ## 多首歌曲
 
-歌詞劇場右側「選擇歌曲」可切換 12 首歌：原本的《最瞎結婚理由》，加上參考 [goldshoot0720/Effects](https://github.com/goldshoot0720/Effects) 匯入的 8 首（鋒塗力百年夢、水電進化 Show、喵布布本喵掉的毛、鋒兄的傳奇人生、塗哥水電王子爆紅、鋒兄進化 Show！、我與國中畢業紀念冊的對話、統一發票頭獎得主鋒兄威力彩頭獎得主塗哥），以及頭獎祝福曲的英文、日文、粵文三個版本。每首歌有自己的 MP3、逐句時間戳、分幕、預設角色（FBX 班底）與分析得出的 BPM；角色分配與 BPM 依歌曲分別記憶。新歌沒有固定情侶配對，「隨劇情」模式各自跳舞，仍可手動切換兩對牽手／抱抱；副歌使用新的「rally」舞台動作（彩紙＋群舞）。
+PV 首頁與歌詞劇場依 [goldshoot0720/NewEffects](https://github.com/goldshoot0720/NewEffects) 提供 **9 首歌 × 中文、英文、日文、粵文，共 36 個版本**。選單保留 PV 01～09，每張歌曲卡片集中列出四個語言按鈕；上一首／下一首依「中文 → 英文 → 日文 → 粵文 → 下一首中文」切換。既有 `?song=wedding`、`?song=s023`、`?song=s102-en` 等網址仍可使用。角色分配與 BPM 依各語言版本分別記憶；編舞沿用各曲既有設定與 BPM 預設，可在劇場調整。
 
-三個語言版本保留使用者提供的完整歌詞，每版 20 句，資料在 `src/lucky-translations.js`。音檔及逐句時間軸沿用本機 NewEffects 專案的對應音檔／SRT；音檔轉為真正的 MP3，節奏分析約 117 BPM，PV 沿用中文版招財喵與中獎配色。來源：[英文版](https://suno.com/s/NNjWp4nInpeloTf5)、[日文版](https://suno.com/s/xb8brpvBy23lIyfx)、[粵文版](https://suno.com/s/a0XTF9CAMxLNOtBc)。重新匯入 Effects 不會覆寫這三個版本。
+| PV | 歌曲 | 版本 |
+| --- | --- | --- |
+| 01 | 最瞎結婚理由 | 中文／英文／日文／粵文 |
+| 02 | 鋒塗力百年夢 | 中文／英文／日文／粵文 |
+| 03 | 水電進化 Show | 中文／英文／日文／粵文 |
+| 04 | 喵布布本喵掉的毛 | 中文／英文／日文／粵文 |
+| 05 | 鋒兄的傳奇人生 | 中文／英文／日文／粵文 |
+| 06 | 塗哥水電王子爆紅 | 中文／英文／日文／粵文 |
+| 07 | 鋒兄進化 Show！ | 中文／英文／日文／粵文 |
+| 08 | 我與國中畢業紀念冊的對話 | 中文／英文／日文／粵文 |
+| 09 | 統一發票頭獎得主鋒兄威力彩頭獎得主塗哥 | 中文／英文／日文／粵文 |
+
+每個版本都有獨立 MP3、原文歌詞與逐句 SRT 起訖時間，不借用其他語言時間軸，也不平均攤分全曲。依音源重唱的句子照實保留；NewEffects 明確標記未演唱的行不強塞進字幕。來源檔案、提交編號、SHA-256 與略唱紀錄在 `verification/neweffects-import.json`。英文、日文舞台字卡使用對應語言，並沿用各首歌曲的配色、角色及動作；頭獎曲保留五人、鋒兄 C 位、塗哥相鄰與喵掌姿勢。
+
+本次來源對應 NewEffects 提交 `bfdfde8`；136 份音檔、字幕及歌詞／時間軸來源均已核對為該提交內容。驗證結果與選單截圖見 `verification/neweffects-versions.md`。
+
+`src/new-effects-data.js` 是目前 36 版的音檔、歌詞與時間軸資料，`src/song-versions.js` 結合既有角色、分幕與編舞設定。`src/lucky-translations.js` 保留頭獎曲三語舞台字卡，例如英文生日祝福。頭獎曲來源：[英文版](https://suno.com/s/NNjWp4nInpeloTf5)、[日文版](https://suno.com/s/xb8brpvBy23lIyfx)、[粵文版](https://suno.com/s/a0XTF9CAMxLNOtBc)。
 
 生日祝福、中獎與幸福字卡、章節標題及謝幕文字均依歌曲語言顯示；例如英文版生日字卡為「🎂 Happy 37th Birthday, Feng!」。英文／日文版背景獎券分別顯示 JACKPOT／1等，選歌清單仍保留原本的中文歌名與語言標示。
 
@@ -87,13 +103,13 @@ npm run dev
 
 依故事編排的手勢：每一幕有自己的動作清單（`moves`），每八拍換一個動作。除了原本 16 組舞步，新增空氣吉他、握麥高歌、指向觀眾、扳手鎖螺絲、執筆書寫、撒鈔票、喵喵貓爪、揮手致意、托腮思考、翻閱紀念冊、握拳歡呼 11 種手勢，例如水電進化 Show 的樂團段落彈空氣吉他、喵布布的歌做貓爪、中獎段落撒鈔票、紀念冊對話托腮思考與翻書。開發頁 console 執行 `await (await import('/verification/gesture-gallery.js')).gestureGallery()` 可取得每個手勢的截圖。
 
-重新匯入：`python3 tools/import-effects-songs.py <Effects 路徑>`，會複製音檔到 `public/audio/` 並產生 `src/effects-songs.js`；分幕標題與角色在腳本內編寫。
+重新匯入四語資料：`python -X utf8 tools/import-neweffects-versions.py <NewEffects 路徑>`，會核對 36 組音檔／SRT 與來源歌詞、時間軸，複製或轉碼至 `public/audio/`，產生 `src/new-effects-data.js` 及來源雜湊紀錄，不修改 NewEffects。原有 `tools/import-effects-songs.py` 仍可更新 Effects 的角色與編舞範本；更新後可重新匯入 NewEffects 四語資料。
 
 《統一發票頭獎得主鋒兄威力彩頭獎得主塗哥》的中文、英文、日文、粵文版本由鋒兄、喵布布、塗哥、咕咕嘎嘎、GPT 娘五位角色演出。舞台與角色視窗由左至右為喵布布、咕咕嘎嘎、鋒兄、塗哥、GPT 娘：鋒兄固定站中央 C 位，塗哥站其右側相鄰位置。GPT 娘模型來自提供的 `gptmusume-pose.fbx`，含 33 根骨骼與蒙皮；PV 與歌詞劇場皆支援五人站位、骨架編舞和角色切換。PV 的角色視窗與謝幕名單只顯示角色名稱，不加檔名後綴。[五人新版 MP4 Release](https://github.com/goldshoot0720/MMD/releases/tag/pv-jackpot-paws-20261102) 包含這四個版本，先前四人影片仍保留於原有 Release。
 
 ## PV（每首歌的音樂影片）
 
-首頁 `index.html` 是二次元風格的 PV 播放／渲染器（原本的編輯器與歌詞劇場移到第二版本 `v2.html`，劇場播放列的「▶ 看 PV」會開啟目前歌曲的 PV），12 首歌皆可即時播放或輸出 1920×1080、30 fps 的 PV，畫面全部由原曲 MP3 與逐句時間軸驅動：
+首頁 `index.html` 是二次元風格的 PV 播放／渲染器（原本的編輯器與歌詞劇場移到第二版本 `v2.html`，劇場播放列的「▶ 看 PV」會開啟目前歌曲的 PV），9 首歌的 36 個版本皆可即時播放或輸出 1920×1080、30 fps 的 PV，畫面全部由各版本的原曲 MP3 與逐句時間軸驅動：
 
 - **角色**：FBX 班底改為賽璐璐卡通著色（三階色階＋反轉外殼描邊），沿用程序式骨架舞蹈與雙人牽手／抱抱。
 - **運鏡**：依歌詞逐句切鏡：遠景、推近、單人、臉部特寫、仰角、環繞、搖臂、斜角；副歌每四拍切一次。另有角色視窗鏡頭，依歌曲人數使用四或五個浮動視窗呈現每位角色的特寫。

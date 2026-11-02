@@ -11,7 +11,7 @@ import { createDancer } from '../dance.js';
 import { coupleCue, applyCouples } from '../couples.js';
 import { timedCue } from '../lrc.js';
 import { actorPose, stageOrder } from '../song-data.js';
-import { songs, songById } from '../songs.js';
+import { songs, songGroups, songById } from '../songs.js';
 import { modelById, loadAsset, instantiateAsset } from '../models.js';
 import { createBackground, speedLines } from './bg.js';
 import { toonify } from './toon.js';
@@ -216,8 +216,8 @@ async function load(id) {
     song, style, timeline, dancers,
     energy: analysis.energy, kick: analysis.kick,
     names: song.cast.map(c => c.name),
-    number: songs.indexOf(song) + 1,
-    background: createBackground(W, H, style, (songs.indexOf(song) + 1) * 0.0731),
+    number: song.pvNumber,
+    background: createBackground(W, H, style, song.pvNumber * 0.0731),
     ticker: style.pattern === 'scanlines'
       ? `${song.title} ・ ${song.chapters.map(c => c.title).join(' ・ ')} ・ `
       : '',
@@ -540,7 +540,7 @@ function frame(t) {
   const inset = current.ticker ? 58 : 0;
   const intro = timeline.intro;
   const titleEnd = intro >= 3 ? (intro > 6 ? intro * 0.55 : intro) - 0.1 : 5;
-  if (t < titleEnd) drawTitle(ctx, { song, style, number: current.number, total: songs.length }, t, titleEnd, look, W, H, intro < 3);
+  if (t < titleEnd) drawTitle(ctx, { song, style, number: current.number, total: songGroups.length }, t, titleEnd, look, W, H, intro < 3);
   if (chapterIndex >= 0 && t < timeline.outroStart) {
     const chapter = timeline.chapters[chapterIndex];
     drawChapterTab(ctx, chapter, chapterIndex, t, look, W);
@@ -576,7 +576,7 @@ function frame(t) {
 // Offline render API (tools/render-pv.mjs)
 // ---------------------------------------------------------------------------
 window.PV = {
-  songs: songs.map(s => ({ id: s.id, title: s.title })),
+  songs: songs.map(s => ({ id: s.id, title: s.title, pvNumber: s.pvNumber, language: s.language })),
   load,
   frame,
   async jpeg(quality = 0.92) {
@@ -734,8 +734,12 @@ async function play(id, at = 0) {
 
 if (!renderMode) {
   const list = document.getElementById('list');
-  list.innerHTML = songs.map((s, i) => `
-    <button data-song="${s.id}"><small>PV ${String(i + 1).padStart(2, '0')}</small><strong>${s.title}</strong><span>${s.tagline}</span></button>`).join('');
+  list.innerHTML = songGroups.map(group => `
+    <article class="song-group">
+      <small>PV ${String(group.number).padStart(2, '0')}</small>
+      <strong>${group.title}</strong><p>${group.tagline}</p>
+      <div class="song-languages">${group.variants.map(s => `<button data-song="${s.id}" aria-label="${s.title} · ${s.languageLabel}">${s.languageLabel}</button>`).join('')}</div>
+    </article>`).join('');
   list.addEventListener('click', event => {
     const button = event.target.closest('[data-song]');
     if (button) play(button.dataset.song);

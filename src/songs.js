@@ -4,15 +4,15 @@ import weddingLrc from './wedding.lrc?raw';
 import { parseLrc } from './lrc.js';
 import { chapters, lyrics, cast, flattenLyrics } from './song-data.js';
 import { effectsSongs } from './effects-songs.js';
-import { luckyTranslations } from './lucky-translations.js';
+import { buildVersions, groupSongs } from './song-versions.js';
 import { performanceModelIds } from './models.js';
 
-export function buildSong({ times, ...song }) {
+export function buildSong({ times, ends, ...song }) {
   const songLyrics = flattenLyrics(song.chapters);
-  const cues = times.map((time, i) => ({ time, text: songLyrics[i]?.text }));
+  const cues = times.map((time, i) => ({ time, end: ends?.[i], text: songLyrics[i]?.text }));
   if (cues.length !== songLyrics.length) throw new Error(`${song.title}：LRC 與分鏡句數不符`);
   const defaultCast = song.defaultCast ?? song.cast.map(({ modelId }) => modelId);
-  return { ...song, defaultCast, lyrics: songLyrics, cues, defaultDuration: songLyrics.length * 4 };
+  return { ...song, defaultCast, lyrics: songLyrics, cues, defaultDuration: song.duration ?? songLyrics.length * 4 };
 }
 
 const wedding = {
@@ -32,5 +32,6 @@ const wedding = {
 };
 if (wedding.times.length !== lyrics.length) throw new Error('LRC 與分鏡句數不符');
 
-export const songs = [wedding, ...effectsSongs, ...luckyTranslations].map(buildSong);
+export const songs = buildVersions([wedding, ...effectsSongs]).map(buildSong);
+export const songGroups = groupSongs(songs);
 export const songById = id => songs.find(song => song.id === id);

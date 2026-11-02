@@ -4,7 +4,7 @@ import { createDancer } from './dance.js';
 import { timedCue } from './lrc.js';
 import { models, modelById, loadAsset, instantiateAsset } from './models.js';
 import { cueAt, chapterTime, actorPose } from './song-data.js';
-import { songs, songById } from './songs.js';
+import { songs, songGroups, songById } from './songs.js';
 import { showDistance, subtitleTilt, fogRange, orbitCeiling, targetHeight } from './framing.js';
 import {
   $, formatClock, loadPrefs, savePrefs,
@@ -144,7 +144,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     <label class="song-picker">選擇歌曲
       <select id="song-select">
         <option value="" disabled hidden>請先選擇歌曲</option>
-        ${songs.map((s, i) => `<option value="${s.id}">${String(i + 1).padStart(2, '0')} · ${s.title}</option>`).join('')}
+        ${songGroups.map(group => `<optgroup label="PV ${String(group.number).padStart(2, '0')} · ${group.title}">${group.variants.map(s => `<option value="${s.id}">${s.languageLabel} · ${s.title}</option>`).join('')}</optgroup>`).join('')}
       </select>
     </label>
     <div class="show-note"></div>
@@ -248,7 +248,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
         </button>
         <div class="start-progress" aria-hidden="true"><i id="start-bar"></i></div>
         <p id="start-detail">載入 4 位角色與原曲</p>
-        <button id="start-songs" class="start-songs">♫ 選擇歌曲 · ${songs.length} 首</button>
+        <button id="start-songs" class="start-songs">♫ 選擇歌曲 · ${songGroups.length} 首／${songs.length} 版本</button>
         <p class="start-keys">Space 播放 · ← → 快轉 · S 選歌 · F 全螢幕</p>
       </div>
     </div>
@@ -262,14 +262,14 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
           <button id="song-menu-close" aria-label="關閉選歌" title="關閉 (Esc)">✕</button>
         </div>
         <div class="song-grid">
-          ${songs.map((s, i) => `
-            <button class="song-card" data-song="${s.id}">
-              <small>${String(i + 1).padStart(2, '0')}</small>
-              <strong>${s.title}</strong>
-              <span>${s.subtitle}</span>
-              <em>${s.tagline}</em>
-              <i>${s.lyrics.length} 句 · ${s.chapters.length} 幕 · ${s.cast.map(c => c.name).join('、')}</i>
-            </button>`).join('')}
+          ${songGroups.map(group => `
+            <article class="song-card">
+              <small>PV ${String(group.number).padStart(2, '0')}</small>
+              <strong>${group.title}</strong>
+              <em>${group.tagline}</em>
+              <div class="song-languages">${group.variants.map(s => `<button class="language-option" data-song="${s.id}" aria-label="${s.title} · ${s.languageLabel}">${s.languageLabel}</button>`).join('')}</div>
+              <i>${group.variants[0].cast.map(c => c.name).join('、')}</i>
+            </article>`).join('')}
         </div>
         <p class="start-keys">S 開關選歌 · N / P 下一首／上一首 · Esc 關閉</p>
       </div>
@@ -372,14 +372,14 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
 
   // Fill every song-specific part of the panel, overlay and timeline.
   function renderSong() {
-    const number = String(songs.indexOf(song) + 1).padStart(2, '0');
+    const number = String(song.pvNumber).padStart(2, '0');
     const names = song.cast.map(({ name }) => name);
     el.songSelect.value = show.chosen ? song.id : '';
     el.songMenu.querySelectorAll('[data-song]').forEach(card => {
       card.classList.toggle('selected', show.chosen && card.dataset.song === song.id);
     });
     el.songMenu.classList.toggle('required', !show.chosen);
-    el.kicker.textContent = `LYRIC THEATRE / ${number}`;
+    el.kicker.textContent = `LYRIC THEATRE / ${number} · ${song.languageLabel}`;
     el.songTitle.textContent = song.title;
     el.songSubtitle.textContent = song.subtitle;
     el.pv.href = `./?song=${song.id}`;
@@ -998,7 +998,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
 
   function openSongMenu() {
     el.songMenu.hidden = false;
-    (el.songMenu.querySelector('.song-card.selected') || el.songMenu.querySelector('.song-card')).focus();
+    (el.songMenu.querySelector('[data-song].selected') || el.songMenu.querySelector('[data-song]')).focus();
   }
 
   // Until the first pick the menu is the only way in, so it cannot be dismissed.

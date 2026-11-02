@@ -1,0 +1,1077 @@
+{
+  "repository": "https://github.com/goldshoot0720/NewEffects",
+  "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+  "versions": [
+    {
+      "id": "wedding",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "最瞎結婚理由.mp3",
+          "sha256": "b43514621377512e2dddef56df6dc4ed896d958e799c370d4f6c13294bbe1678",
+          "committed": true
+        },
+        {
+          "path": "最瞎結婚理由.srt",
+          "sha256": "dbb1f99a3a88355276973de6d289658b672ceafcbf948ae24a3c59abfab3242d",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/wedding/lyrics-zh.txt",
+          "sha256": "97898a537ed726ef377137cdedfba61b13dcacb7f5b77f9037a0f1c1cd543e9e",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/wedding/timings-zh.json",
+          "sha256": "78dad13660aecfe7da7335168302f02d783a61d4451c8bcca0680b64b6d74984",
+          "committed": true
+        }
+      ],
+      "audioSha256": "b43514621377512e2dddef56df6dc4ed896d958e799c370d4f6c13294bbe1678",
+      "duration": 165.8935,
+      "cueCount": 33,
+      "omitted": []
+    },
+    {
+      "id": "wedding-en",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "最瞎結婚理由(英文歌詞).mp3",
+          "sha256": "7d77751e6051d0e58d7fa158ae425508675dde2b991767db7fe4e45bb7108968",
+          "committed": true
+        },
+        {
+          "path": "最瞎結婚理由(英文歌詞).srt",
+          "sha256": "48b95f731166b79b003611114146f35cc731bdaed191e1918ae7fde66a52594d",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/wedding/lyrics-en.txt",
+          "sha256": "74b1825f75eb6062e0440f95ddf99da254621818310b326272d3263b92871ea6",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/wedding/timings-en.json",
+          "sha256": "a06a63577d2898f5e3f25fb8d6be29b8bf4d3e111835ecaf665618e50a13af1b",
+          "committed": true
+        }
+      ],
+      "audioSha256": "7d77751e6051d0e58d7fa158ae425508675dde2b991767db7fe4e45bb7108968",
+      "duration": 179.3735,
+      "cueCount": 34,
+      "omitted": []
+    },
+    {
+      "id": "wedding-ja",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "最瞎結婚理由(日文歌詞).mp3",
+          "sha256": "d03fba2eefabfad02feb177335afbd9545e1428eaadf399b2d010346ac007c89",
+          "committed": true
+        },
+        {
+          "path": "最瞎結婚理由(日文歌詞).srt",
+          "sha256": "697939e02c7336b1b866de42d231d58fabc3b0a338422d1da99262ad6b29ca69",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/wedding/lyrics-ja.txt",
+          "sha256": "0460f072731aca17c62a65ea033cae56872c587588074659340b656456bbb210",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/wedding/timings-ja.json",
+          "sha256": "a736c9e5bc4dd6129634523f629b738afb3c7a6d9b3e20480aa66ac64ee174a9",
+          "committed": true
+        }
+      ],
+      "audioSha256": "d03fba2eefabfad02feb177335afbd9545e1428eaadf399b2d010346ac007c89",
+      "duration": 190.8135,
+      "cueCount": 34,
+      "omitted": []
+    },
+    {
+      "id": "wedding-yue",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "最瞎結婚理由(粵文歌詞).mp3",
+          "sha256": "856488079bcb8b43ad0ce6fd018d96d2980042ef39376962d77f2e88d71d2f74",
+          "committed": true
+        },
+        {
+          "path": "最瞎結婚理由(粵文歌詞).srt",
+          "sha256": "245781e73b8bbebe1147b298eecd50b7701ff98479a096cdca1b61465d2307c3",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/wedding/lyrics-yue.txt",
+          "sha256": "3042712b2011acaea4cc9d17e099d3c412babee44df52a1017941511e95e0f31",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/wedding/timings-yue.json",
+          "sha256": "203501c65649625be0329678fe166b4585f6416c9566761b32d693e8f1423156",
+          "committed": true
+        }
+      ],
+      "audioSha256": "856488079bcb8b43ad0ce6fd018d96d2980042ef39376962d77f2e88d71d2f74",
+      "duration": 164.0135,
+      "cueCount": 34,
+      "omitted": []
+    },
+    {
+      "id": "s023",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "鋒塗力百年夢.mp3",
+          "sha256": "6d1ff80da27b819ac282185c630feb50340ca7ff55fa845239e90753c9280757",
+          "committed": true
+        },
+        {
+          "path": "鋒塗力百年夢.srt",
+          "sha256": "8b94ac9c84fa08820b4901f3338a147298973f3bdfe193c88a04bf8db86df466",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/fengtuli/lyrics-zh.txt",
+          "sha256": "d3c8bbed1586420f50c4bcea0b8483c15aa48356c183d09e2623f324731e04d7",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/fengtuli/timings-zh.json",
+          "sha256": "0975f7b8c7b2fcc2b1c477218822f830d1d74b73066d6a9b01d9c4527a7b517b",
+          "committed": true
+        }
+      ],
+      "audioSha256": "6d1ff80da27b819ac282185c630feb50340ca7ff55fa845239e90753c9280757",
+      "duration": 97.0335,
+      "cueCount": 32,
+      "omitted": []
+    },
+    {
+      "id": "s023-en",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "鋒塗力百年夢(英文歌詞).mp3",
+          "sha256": "62667efcd10dfe550ef761e30f176157538f80e30ddedd6c4613dd191569e70d",
+          "committed": true
+        },
+        {
+          "path": "鋒塗力百年夢(英文歌詞).srt",
+          "sha256": "543bd298c73b0ca46451761245e19629908638588dae031bb63a336baa5fc086",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/fengtuli/lyrics-en.txt",
+          "sha256": "cba29d0e51b558d91b3492b9c363bd42949b96de9508401686191b427aac4617",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/fengtuli/timings-en.json",
+          "sha256": "619e87e3351c3e497e65e5ed4f1d74194cc772ef365d4277f2e3e0da6a3a1521",
+          "committed": true
+        }
+      ],
+      "audioSha256": "62667efcd10dfe550ef761e30f176157538f80e30ddedd6c4613dd191569e70d",
+      "duration": 146.5335,
+      "cueCount": 32,
+      "omitted": []
+    },
+    {
+      "id": "s023-ja",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "鋒塗力百年夢(日文歌詞).mp3",
+          "sha256": "d651a35c65b80412222243c8864380c1f5da6feb2dc8ee5492f12d2844801bc8",
+          "committed": true
+        },
+        {
+          "path": "鋒塗力百年夢(日文歌詞).srt",
+          "sha256": "8330f563bc0d17d4d71ce9e17ccde55aba91f5f2b928a79aa98c09fdcc366790",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/fengtuli/lyrics-ja.txt",
+          "sha256": "cac7735e469d72d0133208d2b16ab45bd7604e4ea02a56a002e36f52503a6646",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/fengtuli/timings-ja.json",
+          "sha256": "46ac4cfdbe831767a5a13054756eac1aecf439b3ecf41033cc7c48fd3e917919",
+          "committed": true
+        }
+      ],
+      "audioSha256": "d651a35c65b80412222243c8864380c1f5da6feb2dc8ee5492f12d2844801bc8",
+      "duration": 142.4135,
+      "cueCount": 32,
+      "omitted": []
+    },
+    {
+      "id": "s023-yue",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "鋒塗力百年夢(粵文歌詞).mp3",
+          "sha256": "cc21c793425bdcbafc7dbb8a39d9377591d7613ad5cf065d6b94fdae166b392d",
+          "committed": true
+        },
+        {
+          "path": "鋒塗力百年夢(粵文歌詞).srt",
+          "sha256": "7d583b09dfed5e7ffceeecee17dcce0b87ba278f3b9c59c98fb42673e01470a7",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/fengtuli/lyrics-yue.txt",
+          "sha256": "85783e9f50345c51faa2d9bf3173d14b1852616d6116033608cd1dea7dd212bd",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/fengtuli/timings-yue.json",
+          "sha256": "4f8884a60708afb195ab95d2e0eef3c5cc3429e93b1da48df14fef099a6501c3",
+          "committed": true
+        }
+      ],
+      "audioSha256": "cc21c793425bdcbafc7dbb8a39d9377591d7613ad5cf065d6b94fdae166b392d",
+      "duration": 126.4135,
+      "cueCount": 32,
+      "omitted": []
+    },
+    {
+      "id": "s024",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "水電進化 Show.mp3",
+          "sha256": "dc874f062c643c92d85df33df379b7463be6e84510db1c42c86cdf5ae5cf4c45",
+          "committed": true
+        },
+        {
+          "path": "水電進化 Show.srt",
+          "sha256": "c2b20423d8a2813c5f135928b24e0779b6a9298c5e18d056d9cdc6c12ec981fe",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-evolution/lyrics-zh.txt",
+          "sha256": "9b5e084732c301aa4a43627df958067d8f2086716645fb60078b014a9e405488",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-evolution/timings-zh.json",
+          "sha256": "a38f145f5c78a892dc4ad180a2b088c583bcd9a38413a24f7343a2fa76a3535c",
+          "committed": true
+        }
+      ],
+      "audioSha256": "dc874f062c643c92d85df33df379b7463be6e84510db1c42c86cdf5ae5cf4c45",
+      "duration": 163.6135,
+      "cueCount": 28,
+      "omitted": []
+    },
+    {
+      "id": "s024-en",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "水電進化 Show(英文歌詞).mp3",
+          "sha256": "a729610e0adc47f4635256b7dacfafb5ba262f6b8e5cde2e891be79400235649",
+          "committed": true
+        },
+        {
+          "path": "水電進化 Show(英文歌詞).srt",
+          "sha256": "963f1740c900af17a2a7c22690ad296750aca1c3a9a2c780d4835aefb9dda139",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-evolution/lyrics-en.txt",
+          "sha256": "966795b1e39a25206d8cebd4f68e5491366368c608271e1c0315bea73f4c45e4",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-evolution/timings-en.json",
+          "sha256": "dd412652e4c85f065005e892397f81d8ccb07d8d8d271706d1eec04cad2cc98d",
+          "committed": true
+        }
+      ],
+      "audioSha256": "a729610e0adc47f4635256b7dacfafb5ba262f6b8e5cde2e891be79400235649",
+      "duration": 179.6535,
+      "cueCount": 30,
+      "omitted": []
+    },
+    {
+      "id": "s024-ja",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "水電進化 Show(日文歌詞).mp3",
+          "sha256": "99464eab50b54167cf0cc89a32896f27d7c45d3896cf997ebbe91958edb1f30b",
+          "committed": true
+        },
+        {
+          "path": "水電進化 Show(日文歌詞).srt",
+          "sha256": "9f2c19e62a29a7287eea60472af828ab4adac065af2424b2bffe835289d0a9ad",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-evolution/lyrics-ja.txt",
+          "sha256": "ee919330ef771b1891dbf8108f61afd0e73cb0ad2e03f85fa702bfb189bda5d8",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-evolution/timings-ja.json",
+          "sha256": "239909f26bf9f9b09d3948babadbe587e9871496de1bc44dd6b9ea389b7fc099",
+          "committed": true
+        }
+      ],
+      "audioSha256": "99464eab50b54167cf0cc89a32896f27d7c45d3896cf997ebbe91958edb1f30b",
+      "duration": 165.9735,
+      "cueCount": 28,
+      "omitted": []
+    },
+    {
+      "id": "s024-yue",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "水電進化 Show(粵文歌詞).mp3",
+          "sha256": "894f2e55a77cc7ef450b23990162bf848d088cab2372250399eef83e22fdf7d6",
+          "committed": true
+        },
+        {
+          "path": "水電進化 Show(粵文歌詞).srt",
+          "sha256": "8b1767e999e1e78972c41f74f9609877e88cf6bd772b9c1e246d517f51549d5d",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-evolution/lyrics-yue.txt",
+          "sha256": "6d5064a4460edee91d4676dfb9e9c460bbd5e581acbf22b9694efe220d9227ec",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-evolution/timings-yue.json",
+          "sha256": "c8d266d6c931712887ad6c237bd1e990ab69601ec6d219302784d33d6e38a459",
+          "committed": true
+        }
+      ],
+      "audioSha256": "894f2e55a77cc7ef450b23990162bf848d088cab2372250399eef83e22fdf7d6",
+      "duration": 169.4935,
+      "cueCount": 28,
+      "omitted": []
+    },
+    {
+      "id": "s026",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "喵布布本喵掉的毛.mp3",
+          "sha256": "42a9c0fd2a0e99305a04eb31b59314cc64a8072a77f32b9b40ec0d4114c903bc",
+          "committed": true
+        },
+        {
+          "path": "喵布布本喵掉的毛.srt",
+          "sha256": "cd48569b3484b9e6a66d82e572f832fd26d3a6785cd4bfcaaa2d2cadcd93080c",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/bubu-fur/lyrics-zh.txt",
+          "sha256": "d4b0837776397149a047ce7f5f157e355f297c19e59982ed313d208520237f00",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/bubu-fur/timings-zh.json",
+          "sha256": "55a6e427fda59e920e30589e9e1f19b14b85b6968ccc63a71da78dfc490570d0",
+          "committed": true
+        }
+      ],
+      "audioSha256": "42a9c0fd2a0e99305a04eb31b59314cc64a8072a77f32b9b40ec0d4114c903bc",
+      "duration": 169.9735,
+      "cueCount": 48,
+      "omitted": []
+    },
+    {
+      "id": "s026-en",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "喵布布本喵掉的毛(英文歌詞).mp3",
+          "sha256": "4554e13d6ba80688743660381bf2b4f42d4eab5887cfd90b88fcd5d2596996f0",
+          "committed": true
+        },
+        {
+          "path": "喵布布本喵掉的毛(英文歌詞).srt",
+          "sha256": "c2ca369369f8aa41e2a6b0c03722e87953638e743cada7ebb4ba4f13714fa8e9",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/bubu-fur/lyrics-en.txt",
+          "sha256": "89a967dd2f0bae034e42e21e114c258166168eecf571522b9f19b3ce200a85f4",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/bubu-fur/timings-en.json",
+          "sha256": "72ccee894068d28628eff2cfbb144ac2a02810adfb6ec6b47488feebf916d322",
+          "committed": true
+        }
+      ],
+      "audioSha256": "4554e13d6ba80688743660381bf2b4f42d4eab5887cfd90b88fcd5d2596996f0",
+      "duration": 169.2135,
+      "cueCount": 48,
+      "omitted": []
+    },
+    {
+      "id": "s026-ja",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "喵布布本喵掉的毛(日文歌詞).mp3",
+          "sha256": "f697b4eeaf60d64df066acbc6f6894fa0f14554162e33f3cca5c6ab3209e9b4b",
+          "committed": true
+        },
+        {
+          "path": "喵布布本喵掉的毛(日文歌詞).srt",
+          "sha256": "a32ce6ca8edc6d44ed96fa093253fbc1fc074b4b6e59b27b19bc6b8587dfc551",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/bubu-fur/lyrics-ja.txt",
+          "sha256": "be8203f3e9eb0c68233b968f22c9c797bf69e36ace3bb415ba209844005ec82f",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/bubu-fur/timings-ja.json",
+          "sha256": "b1a20d513e8be639421b9a0e99fed843f5426d3fbe7d67652b70431267d83dcc",
+          "committed": true
+        }
+      ],
+      "audioSha256": "f697b4eeaf60d64df066acbc6f6894fa0f14554162e33f3cca5c6ab3209e9b4b",
+      "duration": 175.9735,
+      "cueCount": 48,
+      "omitted": []
+    },
+    {
+      "id": "s026-yue",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "喵布布本喵掉的毛(粵文歌詞).mp3",
+          "sha256": "60b7d018ba62b4bf9409986d1e279c331d7baba897c78d5848a172ca710d7a90",
+          "committed": true
+        },
+        {
+          "path": "喵布布本喵掉的毛(粵文歌詞).srt",
+          "sha256": "5cc54645181a976a4ef98de1365c0959f4cedc11fce157437e5af3160cdcc298",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/bubu-fur/lyrics-yue.txt",
+          "sha256": "271d7ef4bf8838dea67c82c9f650f9f7fab2df56330a4797d056dd539b334486",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/bubu-fur/timings-yue.json",
+          "sha256": "b2758e8748d90454906ff2385c9c0ecb5735f1c8a815fa47782a8cd0f9975c01",
+          "committed": true
+        }
+      ],
+      "audioSha256": "60b7d018ba62b4bf9409986d1e279c331d7baba897c78d5848a172ca710d7a90",
+      "duration": 179.5335,
+      "cueCount": 48,
+      "omitted": []
+    },
+    {
+      "id": "s027",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "鋒兄的傳奇人生.mp3",
+          "sha256": "3c540d20e10130895b7467b0ec56d5088ac63df80a9c67a7f1f6eedfc8cb5159",
+          "committed": true
+        },
+        {
+          "path": "鋒兄的傳奇人生.srt",
+          "sha256": "ec192845a96480c3ace2694e3e41a4f8c0555f4a653d199ac13b2942d6364e3c",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/feng-legend/lyrics-zh.txt",
+          "sha256": "b884f60efb0c31ce2d68c8c0120ec2f86a126e9b7a87a3cc6f2e27e3cc29b06e",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/feng-legend/timings-zh.json",
+          "sha256": "c4969fb47bae83ad39d415dc47f77e62185a66081abd05e1a1654dac2ab6998e",
+          "committed": true
+        }
+      ],
+      "audioSha256": "3c540d20e10130895b7467b0ec56d5088ac63df80a9c67a7f1f6eedfc8cb5159",
+      "duration": 141.7535,
+      "cueCount": 29,
+      "omitted": [
+        {
+          "line": 16,
+          "reason": "音源由副秘書長段落直接轉入五十四歲段落，未唱出此原文行"
+        },
+        {
+          "line": 17,
+          "reason": "音源由副秘書長段落直接轉入五十四歲段落，未唱出此原文行"
+        }
+      ]
+    },
+    {
+      "id": "s027-en",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "鋒兄的傳奇人生(英文歌詞).mp3",
+          "sha256": "9912abb04aff55bd8d9661be5eb10013038856e38073c405c0ee37e24116e0c8",
+          "committed": true
+        },
+        {
+          "path": "鋒兄的傳奇人生(英文歌詞).srt",
+          "sha256": "2b3c7b53f9b03e9bae4c4525f16ac71310099ab51cd33c4b3ef2e22843937974",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/feng-legend/lyrics-en.txt",
+          "sha256": "a0625893834eef2c8b325ab92efd690749d4a3d087c6b2a03a4e607efa4fc398",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/feng-legend/timings-en.json",
+          "sha256": "fa94136e8fba036eb8cdcee7249c627fc68954edde753e8aacdb1d7a8f86d1ea",
+          "committed": true
+        }
+      ],
+      "audioSha256": "9912abb04aff55bd8d9661be5eb10013038856e38073c405c0ee37e24116e0c8",
+      "duration": 158.9335,
+      "cueCount": 31,
+      "omitted": []
+    },
+    {
+      "id": "s027-ja",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "鋒兄的傳奇人生(日文歌詞).mp3",
+          "sha256": "cb33d035a46026eb6c81325e2dcc51a131111c4adbbe3d94ce1ccb4744ae9974",
+          "committed": true
+        },
+        {
+          "path": "鋒兄的傳奇人生(日文歌詞).srt",
+          "sha256": "6cfde12acb784044963496cd7366302cc4dbc97217424aa01f24c4731dbad1fa",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/feng-legend/lyrics-ja.txt",
+          "sha256": "87aec85906a8231ba44d91b8932bf8d80cbdbbcfa78c2e5284f19454679db7ee",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/feng-legend/timings-ja.json",
+          "sha256": "d89217e90e6c940b045e5fdb8a9521f4e58dfd819b61761dae02095178cbf1dc",
+          "committed": true
+        }
+      ],
+      "audioSha256": "cb33d035a46026eb6c81325e2dcc51a131111c4adbbe3d94ce1ccb4744ae9974",
+      "duration": 169.9735,
+      "cueCount": 32,
+      "omitted": []
+    },
+    {
+      "id": "s027-yue",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "鋒兄的傳奇人生(粵文歌詞).mp3",
+          "sha256": "cdeeb14f83889f19c60207329cbbddf7cf7841b458079912b3f5afc901bdb83e",
+          "committed": true
+        },
+        {
+          "path": "鋒兄的傳奇人生(粵文歌詞).srt",
+          "sha256": "d21029eea26ccf03693acf36ee91cc53d44e2a14febc71f3be4f0a472d313f4b",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/feng-legend/lyrics-yue.txt",
+          "sha256": "f376da850346787879ca865f85e26d94a61b652fc946ae7f76b83ef2643c176f",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/feng-legend/timings-yue.json",
+          "sha256": "be29d9a7a7a4569d4a1fbc1261e444b50dece2c9f1d1c6a42c5313c218564512",
+          "committed": true
+        }
+      ],
+      "audioSha256": "cdeeb14f83889f19c60207329cbbddf7cf7841b458079912b3f5afc901bdb83e",
+      "duration": 187.9735,
+      "cueCount": 33,
+      "omitted": [
+        {
+          "line": 17,
+          "reason": "音源在五十三歲後直接唱市長候選人，未演唱此原文行"
+        },
+        {
+          "line": 18,
+          "reason": "音源在五十三歲後直接唱市長候選人，未演唱此原文行"
+        }
+      ]
+    },
+    {
+      "id": "s028",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "塗哥水電王子爆紅.mp3",
+          "sha256": "bd9fcfc61ece7e62cad0f491beca74c460c0354a81d5943a3b4c87dfa2af5b4a",
+          "committed": true
+        },
+        {
+          "path": "塗哥水電王子爆紅.srt",
+          "sha256": "f88121bd61cf7823cf255f2f1a7aad71e1a551ac818f9a62971706fec7bbffe9",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-prince/lyrics-zh.txt",
+          "sha256": "8a030eabf880b0f36587efa6731ac162ea2fbb2487c30936e1f3c4bbbdffb89f",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-prince/timings-zh.json",
+          "sha256": "fb4dfdc6056cfe74e1874a3e770a19cd7f6acb955355dd6ed79883a6e517d178",
+          "committed": true
+        }
+      ],
+      "audioSha256": "bd9fcfc61ece7e62cad0f491beca74c460c0354a81d5943a3b4c87dfa2af5b4a",
+      "duration": 225.9735,
+      "cueCount": 83,
+      "omitted": []
+    },
+    {
+      "id": "s028-en",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "塗哥水電王子爆紅(英文歌詞).mp3",
+          "sha256": "ed0d665aed49081e69e1585c4654a70303eb573d2251202682a3ea10b3d75813",
+          "committed": true
+        },
+        {
+          "path": "塗哥水電王子爆紅(英文歌詞).srt",
+          "sha256": "d4e104248a35f08e110c7b2e4d3c8db74e4f32cdacbf19a007a28227a654aeb7",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-prince/lyrics-en.txt",
+          "sha256": "656bc45d86a5ede8dc04ffec2e85ab6f025be343270a43f60659be24ccbaeb80",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-prince/timings-en.json",
+          "sha256": "c831c7dbd9608e3bc719dd804053553c637ef2648894eb92e897e11472d9d24f",
+          "committed": true
+        }
+      ],
+      "audioSha256": "ed0d665aed49081e69e1585c4654a70303eb573d2251202682a3ea10b3d75813",
+      "duration": 278.6935,
+      "cueCount": 97,
+      "omitted": []
+    },
+    {
+      "id": "s028-ja",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "塗哥水電王子爆紅(日文歌詞).mp3",
+          "sha256": "141ec13a8c46f38d956f280cc25ed4f8a38c65a6d8f1a0f41cddef4558e3adb1",
+          "committed": true
+        },
+        {
+          "path": "塗哥水電王子爆紅(日文歌詞).srt",
+          "sha256": "9a0670c692a506d335cdec0bdb279856067517ac315cd27b825353b78d776f84",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-prince/lyrics-ja.txt",
+          "sha256": "02feb00c4ad56a29be5b04f598c3d65091dbafac9d6ecaaa1605fea1b3eeac0e",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-prince/timings-ja.json",
+          "sha256": "3029761fd39c6c7399270419dc6349759364b43df792251c51ae94c2b09ea588",
+          "committed": true
+        }
+      ],
+      "audioSha256": "141ec13a8c46f38d956f280cc25ed4f8a38c65a6d8f1a0f41cddef4558e3adb1",
+      "duration": 311.5735,
+      "cueCount": 110,
+      "omitted": []
+    },
+    {
+      "id": "s028-yue",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "塗哥水電王子爆紅(粵文歌詞).mp3",
+          "sha256": "eea81bd14902de41972df569ac50fa5f1fa00d860119a00064e8bfcc4c7e9bdd",
+          "committed": true
+        },
+        {
+          "path": "塗哥水電王子爆紅(粵文歌詞).srt",
+          "sha256": "f4c8d1692c8a8b219f13038a213f621c7d9106371d698aaba4bf3407645e9b65",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-prince/lyrics-yue.txt",
+          "sha256": "e4793a183a0e76c6a46fb72647ebfb14383eb17e96f6ad78ee785bde9aee5764",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/plumbing-prince/timings-yue.json",
+          "sha256": "6e7701a3ae0b37e48a96e1d0da2bc300fe051b278b76b76a8613c9b6a074edb3",
+          "committed": true
+        }
+      ],
+      "audioSha256": "eea81bd14902de41972df569ac50fa5f1fa00d860119a00064e8bfcc4c7e9bdd",
+      "duration": 286.8935,
+      "cueCount": 110,
+      "omitted": [
+        {
+          "line": 53,
+          "reason": "音源於此段改唱前段市長提問，未唱出此原文行"
+        },
+        {
+          "line": 54,
+          "reason": "音源於此段改唱前段市長提問，未唱出此原文行"
+        },
+        {
+          "line": 55,
+          "reason": "音源於此段改唱前段市長提問，未唱出此原文行"
+        }
+      ]
+    },
+    {
+      "id": "s062",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "鋒兄進化 Show！🔥.mp3",
+          "sha256": "06389ca9d60d7fdbf919441a9b2b74cd34bd8913ee90ddcee5a20bdc1fcb9756",
+          "committed": true
+        },
+        {
+          "path": "鋒兄進化 Show！🔥.srt",
+          "sha256": "4a74efedf5f966cd2e1084b1162b8e17199ced4a174a00eeb03753b3d3041e32",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/evolution/lyrics-zh.txt",
+          "sha256": "aae5275136762885d1dd1dd7664bcef2af50f6bbf1d98c695b9eb5a92695eed6",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/evolution/timings-zh.json",
+          "sha256": "d6068d6f4d10562d325af0483ac31dcf649bc5af304fbb194acd9c640ea599f3",
+          "committed": true
+        }
+      ],
+      "audioSha256": "06389ca9d60d7fdbf919441a9b2b74cd34bd8913ee90ddcee5a20bdc1fcb9756",
+      "duration": 101.0135,
+      "cueCount": 32,
+      "omitted": []
+    },
+    {
+      "id": "s062-en",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "鋒兄進化 Show！🔥(英文歌詞).mp3",
+          "sha256": "890b080e00ff803bd72d0bedcd467f6291ea536f53b19d2e5ef4f6a597ddfa3c",
+          "committed": true
+        },
+        {
+          "path": "鋒兄進化 Show！🔥(英文歌詞).srt",
+          "sha256": "a9498148baaba92c12a0c0e6a32228f1304cdf4f39c229b5991138f071623ebc",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/evolution/lyrics-en.txt",
+          "sha256": "bdea28c08c3a8211bd6f2e672c69f03dfadd80b3794a15fd61a440d3fe92392b",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/evolution/timings-en.json",
+          "sha256": "ca111fd8eff389b98b8385bb7f77f2815a0854bb85188c6e6fdf5bf18d637869",
+          "committed": true
+        }
+      ],
+      "audioSha256": "890b080e00ff803bd72d0bedcd467f6291ea536f53b19d2e5ef4f6a597ddfa3c",
+      "duration": 131.9735,
+      "cueCount": 29,
+      "omitted": []
+    },
+    {
+      "id": "s062-ja",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "鋒兄進化 Show！🔥(日文歌詞).mp3",
+          "sha256": "93ed1bc196776d3c7a979650a90a9c18f3a3a397e881a795f7bfc40e6d95f2ad",
+          "committed": true
+        },
+        {
+          "path": "鋒兄進化 Show！🔥(日文歌詞).srt",
+          "sha256": "064421b5825e9859b59b7caff79e08b7640ef3efe98c8ef8649dfdd3a184e6f2",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/evolution/lyrics-ja.txt",
+          "sha256": "3e8961bd0193dfdec6652bbc0674c8fa8a0ce8106444a76785988d011bdb6724",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/evolution/timings-ja.json",
+          "sha256": "eba8a1153544c2af27db59f4fa2848c996e681e294d9b4a24f3adf689a14c6f6",
+          "committed": true
+        }
+      ],
+      "audioSha256": "93ed1bc196776d3c7a979650a90a9c18f3a3a397e881a795f7bfc40e6d95f2ad",
+      "duration": 176.5335,
+      "cueCount": 57,
+      "omitted": []
+    },
+    {
+      "id": "s062-yue",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "鋒兄進化 Show！🔥(粵文歌詞).mp3",
+          "sha256": "8923d0884c2b1aba877d1c7072dd24653925866f45bd05306079d9d558d6e767",
+          "committed": true
+        },
+        {
+          "path": "鋒兄進化 Show！🔥(粵文歌詞).srt",
+          "sha256": "78d7a782574622f00507862b4446cb3657e5c294dcd5a277fff5489b83b63d6e",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/evolution/lyrics-yue.txt",
+          "sha256": "ae09d7dc1fbe1555e6ea56f8426fd92938fb512a216d23a5ef2c28f6bbdb9a2a",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/evolution/timings-yue.json",
+          "sha256": "77598ce517e170db51f62b6489e7afb165e170c40a00dce724cdb1e06d2bd761",
+          "committed": true
+        }
+      ],
+      "audioSha256": "8923d0884c2b1aba877d1c7072dd24653925866f45bd05306079d9d558d6e767",
+      "duration": 117.8135,
+      "cueCount": 55,
+      "omitted": []
+    },
+    {
+      "id": "s101",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "我與國中畢業紀念冊的對話.mp3",
+          "sha256": "2d3146a3badd98e4dfae070fedd93e17d37fb571b16cbef952c0226388537488",
+          "committed": true
+        },
+        {
+          "path": "我與國中畢業紀念冊的對話.srt",
+          "sha256": "66f6e0d00170b4a3046aacb4a1ace3630681940f02be4c9abd416728dd48f97a",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/yearbook/lyrics-zh.txt",
+          "sha256": "0020fe095980748ec23b0b61b594cded86efe190a88ceb41448f95011004dde5",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/yearbook/timings-zh.json",
+          "sha256": "fadce5bbded31d8582f50ed133ae599133d336d272e370a3c143c84e4968d419",
+          "committed": true
+        }
+      ],
+      "audioSha256": "2d3146a3badd98e4dfae070fedd93e17d37fb571b16cbef952c0226388537488",
+      "duration": 234.5735,
+      "cueCount": 95,
+      "omitted": []
+    },
+    {
+      "id": "s101-en",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "我與國中畢業紀念冊的對話(英文歌詞).mp3",
+          "sha256": "d110fa096186ca40a264f2c37e528cd719be09aac70cbade6b6fab32c5a3c54c",
+          "committed": true
+        },
+        {
+          "path": "我與國中畢業紀念冊的對話(英文歌詞).srt",
+          "sha256": "7993809fb3e5b55005837772bac0afb0c484df9840fb8d0d9e8b7bcb6fe26180",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/yearbook/lyrics-en.txt",
+          "sha256": "c4bbb4ed254825a4399a6acc7105337e3813549259456f6660beac27dc6eede6",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/yearbook/timings-en.json",
+          "sha256": "0eefe07f6f0bac5fe0ca0a3ebcc0e98818256eb69b179157f92b03cb8b1cd99c",
+          "committed": true
+        }
+      ],
+      "audioSha256": "d110fa096186ca40a264f2c37e528cd719be09aac70cbade6b6fab32c5a3c54c",
+      "duration": 275.5335,
+      "cueCount": 92,
+      "omitted": []
+    },
+    {
+      "id": "s101-ja",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "我與國中畢業紀念冊的對話(日文歌詞).mp3",
+          "sha256": "7a4fc4ca3eb20271444156daca0b64a8098a7413d2992ce4dac6858a668a12c0",
+          "committed": true
+        },
+        {
+          "path": "我與國中畢業紀念冊的對話(日文歌詞).srt",
+          "sha256": "9e3998aa7fd9cb11a6e1e4530c17eb69071e6bddf26aca30993e22ca5655e021",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/yearbook/lyrics-ja.txt",
+          "sha256": "d9ac99e8ade59a3d1dcf62e6fa41d2b25d92cc6b6db6ed1e1b4368ce75ea9e6b",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/yearbook/timings-ja.json",
+          "sha256": "fad433f98d80243363ce090cffaeb21c619821ecc0fb7f8ca0ff3cbaf1e94b11",
+          "committed": true
+        }
+      ],
+      "audioSha256": "7a4fc4ca3eb20271444156daca0b64a8098a7413d2992ce4dac6858a668a12c0",
+      "duration": 253.6135,
+      "cueCount": 108,
+      "omitted": []
+    },
+    {
+      "id": "s101-yue",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "我與國中畢業紀念冊的對話(粵文歌詞).mp3",
+          "sha256": "3fae20b1ea8374287f0f33b1710bda95cc46c301bad1ef4e9b034e0162282a97",
+          "committed": true
+        },
+        {
+          "path": "我與國中畢業紀念冊的對話(粵文歌詞).srt",
+          "sha256": "a9e8fdb0243eb6861a7c5e01d43574cefe20b5b596ecb59e7f5c8881fdb7648d",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/yearbook/lyrics-yue.txt",
+          "sha256": "240e1bc0fbc6b538ae487df0c92e4e70ea6d0e9ee4f90e29c9eb414b748c1d61",
+          "committed": true
+        },
+        {
+          "path": "assets/ref/yearbook/timings-yue.json",
+          "sha256": "f4b993dc7a33f4508559449c12739e5551d974b8dd563dcf7adfa0b49cdb8f92",
+          "committed": true
+        }
+      ],
+      "audioSha256": "3fae20b1ea8374287f0f33b1710bda95cc46c301bad1ef4e9b034e0162282a97",
+      "duration": 263.1735,
+      "cueCount": 111,
+      "omitted": []
+    },
+    {
+      "id": "s102",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "統一發票頭獎得主鋒兄威力彩頭獎得主塗哥.mp3",
+          "sha256": "3cb48bfb06fed00e7ec1a9f8428b22a5810923dddd1ab3077340591afb54eac4",
+          "committed": true
+        },
+        {
+          "path": "統一發票頭獎得主鋒兄威力彩頭獎得主塗哥.srt",
+          "sha256": "2aaebf54968aee6eaec938c560d2ec2417b5bf62ca2b487aeedc6581f5a5aac3",
+          "committed": true
+        }
+      ],
+      "audioSha256": "3cb48bfb06fed00e7ec1a9f8428b22a5810923dddd1ab3077340591afb54eac4",
+      "duration": 141.573515,
+      "cueCount": 20,
+      "omitted": []
+    },
+    {
+      "id": "s102-en",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "統一發票頭獎得主鋒兄威力彩頭獎得主塗哥(英文歌詞).mp3",
+          "sha256": "4ef5abaa4a100f65df14bb8c45d750b42938d81b52feeca12dc34be70260eeb0",
+          "committed": true
+        },
+        {
+          "path": "統一發票頭獎得主鋒兄威力彩頭獎得主塗哥(英文歌詞).srt",
+          "sha256": "0260dbcd7cc1669b563773a9a081acdcf5602c3bd54e3b15031b4147d5215569",
+          "committed": true
+        }
+      ],
+      "audioSha256": "4ef5abaa4a100f65df14bb8c45d750b42938d81b52feeca12dc34be70260eeb0",
+      "duration": 125.3735,
+      "cueCount": 20,
+      "omitted": []
+    },
+    {
+      "id": "s102-ja",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "統一發票頭獎得主鋒兄威力彩頭獎得主塗哥(日文歌詞).mp3",
+          "sha256": "740bc944a5e3b198adda8d789ab3e2dd9398c88b2c3fb5e0f329202d9757e1bb",
+          "committed": true
+        },
+        {
+          "path": "統一發票頭獎得主鋒兄威力彩頭獎得主塗哥(日文歌詞).srt",
+          "sha256": "397b7162bccbf17a4c044ef9e51147434e6ab3e8ebf0b2754f4a0ad47e68d96d",
+          "committed": true
+        }
+      ],
+      "audioSha256": "740bc944a5e3b198adda8d789ab3e2dd9398c88b2c3fb5e0f329202d9757e1bb",
+      "duration": 127.7735,
+      "cueCount": 20,
+      "omitted": []
+    },
+    {
+      "id": "s102-yue",
+      "sourceRevision": "bfdfde814b2281fb4e93cafbb99ae9e995766faf",
+      "sourceFiles": [
+        {
+          "path": "統一發票頭獎得主鋒兄威力彩頭獎得主塗哥(粵文歌詞).mp3",
+          "sha256": "231433d327ec1b13d7980b186af593aea09538fa1d8fc62b9b5a8cf945fbc0bf",
+          "committed": true
+        },
+        {
+          "path": "統一發票頭獎得主鋒兄威力彩頭獎得主塗哥(粵文歌詞).srt",
+          "sha256": "e741c05ab28d29d26fefb2e631c55d30b93bc850d349639288536b4dc7872490",
+          "committed": true
+        }
+      ],
+      "audioSha256": "231433d327ec1b13d7980b186af593aea09538fa1d8fc62b9b5a8cf945fbc0bf",
+      "duration": 135.8935,
+      "cueCount": 20,
+      "omitted": []
+    }
+  ]
+}

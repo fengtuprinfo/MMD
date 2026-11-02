@@ -400,6 +400,9 @@ button:disabled { cursor: not-allowed; }
 .song-card em { font-style: normal; font-size: 11px; color: #ffdc91; }
 .song-card i { font-style: normal; font-size: 9px; color: #7f7392; line-height: 1.6; }
 .song-card.selected small::after { content: ' · 目前歌曲'; color: #bca8ff; }
+.song-card .song-languages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; width: 100%; margin-top: 5px; }
+.song-languages .language-option { min-height: 44px; padding: 6px 4px; font-size: 12px; text-align: center; }
+.song-languages .language-option.selected { background: #bca8ff; color: #221c37; border-color: #bca8ff; }
 @media (max-width: 760px) {
   .song-menu-inner { padding: 16px; }
   .song-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
