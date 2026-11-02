@@ -51,7 +51,7 @@ test('the rally action poses and dances with finite values', () => {
 
 test('five-person jackpot cast stays finite, separated and inside the camera clearance', () => {
   for (const song of catalogue.filter(s => s.id.startsWith('s102'))) {
-    assert.deepEqual(song.cast.map(c => c.modelId), [10, 12, 11, 5, 13]);
+    assert.deepEqual(song.cast.map(c => c.modelId), [10, 12, 11, 6, 13]);
     for (const chapter of song.chapters) for (let t = 0; t < 130; t += .37) {
       const poses = song.cast.map((_, i) => actorPose(i, t, { chapterData: chapter, line: 3 }, song.cast.length));
       for (const pose of poses) {

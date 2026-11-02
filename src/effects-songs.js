@@ -1370,8 +1370,8 @@ export const effectsSongs = [
     "modelId": 11
    },
    {
-    "name": "牙妹",
-    "modelId": 5
+    "name": "咕咕嘎嘎",
+    "modelId": 6
    },
    {
     "name": "GPT 娘",

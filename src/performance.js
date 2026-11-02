@@ -100,7 +100,11 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   // -------------------------------------------------------------------------
   // Cast choices are remembered per song; the wedding song also accepts the older single-song pref.
   function savedCast(target) {
-    const saved = prefs.casts?.[target.id] ?? (target.id === 'wedding' ? prefs.cast : null);
+    let saved = prefs.casts?.[target.id] ?? (target.id === 'wedding' ? prefs.cast : null);
+    // Upgrade the former jackpot cast saved by earlier visits, including its four-person version.
+    if (target.id.startsWith('s102') && prefs.castRevisions?.[target.id] !== 1 && Array.isArray(saved) && saved[3] === 5) {
+      saved = saved.map((id, i) => i === 3 ? target.defaultCast[3] : id);
+    }
     return Array.isArray(saved) && saved.length >= 4 && saved.length <= target.cast.length && saved.every(id => modelById(id))
       ? [...saved, ...target.defaultCast.slice(saved.length)]
       : target.defaultCast;
@@ -836,7 +840,8 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
 
     const ids = castSelects.slice(0, song.cast.length).map(select => Number(select.value));
     prefs.casts = { ...prefs.casts, [song.id]: ids };
-    savePrefs({ casts: prefs.casts });
+    prefs.castRevisions = { ...prefs.castRevisions, [song.id]: 1 };
+    savePrefs({ casts: prefs.casts, castRevisions: prefs.castRevisions });
 
     try {
       const assets = await Promise.all(ids.map(requestAsset));

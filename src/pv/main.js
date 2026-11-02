@@ -436,7 +436,7 @@ function applyLights(look) {
 }
 
 // ---------------------------------------------------------------------------
-// .pet windows: close-ups of each cast member in cute app windows
+// Character windows: close-ups of each cast member in cute app windows
 // ---------------------------------------------------------------------------
 const WINDOW_LAYOUT = [
   { x: 56, y: 168, w: 430, h: 640, r: -0.03 },

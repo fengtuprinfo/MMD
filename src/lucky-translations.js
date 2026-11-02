@@ -4,7 +4,7 @@ const cast = [
   { name: '鋒兄', modelId: 10 },
   { name: '喵布布', modelId: 12 },
   { name: '塗哥', modelId: 11 },
-  { name: '牙妹', modelId: 5 },
+  { name: '咕咕嘎嘎', modelId: 6 },
   { name: 'GPT 娘', modelId: 13 },
 ];
 const staging = [

@@ -445,7 +445,7 @@ export function drawEnding(ctx, { song, cast }, t, start, end, look, W, H) {
       ctx.save();
       ctx.translate(W / 2 + (i - (names.length - 1) / 2) * spacing, y + 64);
       ctx.scale(k, k);
-      pill(ctx, 0, 0, `${name}.pet`, { size: 24, border: CANDY[i % CANDY.length] });
+      pill(ctx, 0, 0, name, { size: 24, border: CANDY[i % CANDY.length] });
       ctx.restore();
     });
     ctx.globalAlpha = smooth((since - 1.6) / 0.5);
@@ -462,7 +462,7 @@ export function drawEnding(ctx, { song, cast }, t, start, end, look, W, H) {
   }
 }
 
-// Title bar for a ".pet" window that frames a 3D close-up.
+// Title bar for a character window that frames a 3D close-up.
 export function drawWindowFrame(ctx, x, y, w, h, name, color, bg) {
   ctx.save();
   ctx.shadowColor = 'rgba(20,10,40,.4)';
@@ -491,7 +491,7 @@ export function drawWindowFrame(ctx, x, y, w, h, name, color, bg) {
   ctx.fillStyle = '#fff';
   ctx.textAlign = 'left';
   ctx.font = `800 24px ${SANS}`;
-  ctx.fillText(`${name}.pet`, x + 46, y - 25);
+  ctx.fillText(name, x + 46, y - 25);
   for (let i = 0; i < 3; i++) {
     const bx = x + w - 26 - i * 34;
     ctx.strokeStyle = '#fff'; ctx.lineWidth = 3;
