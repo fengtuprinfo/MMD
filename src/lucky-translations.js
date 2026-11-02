@@ -5,6 +5,7 @@ const cast = [
   { name: '喵布布', modelId: 12 },
   { name: '塗哥', modelId: 11 },
   { name: '牙妹', modelId: 5 },
+  { name: 'GPT 娘', modelId: 13 },
 ];
 const staging = [
   { theme: 'rose', action: 'rally', moves: ['paw', 'cheer', 'heart', 'clap'] },

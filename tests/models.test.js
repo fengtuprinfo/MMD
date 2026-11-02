@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { models, performanceModelIds, modelById, instantiateAsset } from '../src/models.js';
 
 test('all bundled cast models resolve to real assets',()=>{
- assert.equal(new Set(models.map(m=>m.id)).size,12);
+ assert.equal(new Set(models.map(m=>m.id)).size,13);
  for(const m of models)assert.ok(existsSync(new URL(`../public${m.url}`,import.meta.url)),m.url);
  assert.deepEqual(performanceModelIds.map(id=>modelById(id).name),['鋒兄','牙妹','小塗','魚妹']);
 });

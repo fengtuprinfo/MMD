@@ -123,11 +123,7 @@ const rings = [3.2, 3.6].map(r => {
 
 const cast = new THREE.Group();
 scene.add(cast);
-const performers = Array.from({ length: 4 }, () => {
-  const g = new THREE.Group();
-  cast.add(g);
-  return g;
-});
+const performers = [];
 
 // ---------------------------------------------------------------------------
 // Song state
@@ -202,6 +198,12 @@ async function load(id) {
   const ids = song.defaultCast;
   const loaded = await Promise.all(ids.map(loadModel));
   const dancers = [];
+  while (performers.length > ids.length) cast.remove(performers.pop());
+  while (performers.length < ids.length) {
+    const performer = new THREE.Group();
+    cast.add(performer);
+    performers.push(performer);
+  }
   performers.forEach((performer, i) => {
     performer.clear();
     const model = toonify(instantiateAsset(loaded[i]));
@@ -266,7 +268,7 @@ function poseCast(t) {
   const cue = timedCue(t, timeline.duration, song.cues, song.lyrics, song.chapters, song.title);
   const action = cue.chapterData.action;
   performers.forEach((performer, i) => {
-    const pose = actorPose(i, t, cue);
+    const pose = actorPose(i, t, cue, performers.length);
     performer.position.set(pose.x, pose.y, pose.z);
     performer.rotation.set(0, pose.ry, pose.rz);
     performer.scale.setScalar(pose.scale);
@@ -301,7 +303,7 @@ const head = i => {
 
 function frontRow() {
   const front = performers.map((p, i) => i).filter(i => performers[i].scale.x >= 0.74);
-  return front.length ? front : [0, 1, 2, 3];
+  return front.length ? front : performers.map((_, i) => i);
 }
 
 // ---------------------------------------------------------------------------
@@ -358,7 +360,7 @@ function placeCamera(shot, t, shake) {
   camera.fov = fov;
   camera.aspect = W / H;
   camera.updateProjectionMatrix();
-  const subject = shot.type === 'solo' || shot.type === 'face' ? [focus] : [0, 1, 2, 3];
+  const subject = shot.type === 'solo' || shot.type === 'face' ? [focus] : performers.map((_, i) => i);
   dollyUntilFit(camera, pos, target, castExtents(subject), { x: 0.06, top: 0.045, bottom: LYRIC_BAND + 0.02 }, roll);
 }
 
@@ -448,7 +450,11 @@ function drawWindows(shot, t, look) {
   const leaving = shot.end - t;
   const bg = look.light > 0.5 ? css(mix(look.top, [255, 255, 255], 0.5)) : css(mix(look.bottom, [255, 255, 255], 0.12));
   renderer.setScissorTest(true);
-  WINDOW_LAYOUT.forEach((rect, i) => {
+  const layout = performers.length === 4 ? WINDOW_LAYOUT : performers.map((_, i) => {
+    const gap = 22, w = (W - 112 - gap * (performers.length - 1)) / performers.length;
+    return { x: 56 + i * (w + gap), y: 180 + (i % 2) * 20, w, h: 620, r: i % 2 ? .02 : -.02 };
+  });
+  layout.forEach((rect, i) => {
     const k = clamp((since - i * 0.12) / 0.45, 0, 1);
     const pop = k <= 0 ? 0 : 1 + 2.7 * Math.pow(k - 1, 3) + 1.7 * Math.pow(k - 1, 2);
     const out = smooth(leaving / 0.3);

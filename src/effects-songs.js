@@ -1372,6 +1372,10 @@ export const effectsSongs = [
    {
     "name": "牙妹",
     "modelId": 5
+   },
+   {
+    "name": "GPT 娘",
+    "modelId": 13
    }
   ],
   "couples": false,

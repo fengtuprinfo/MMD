@@ -19,7 +19,7 @@ const SEEK_STEP = 5;              // seconds for ← / →
 const RESTART_LINE_AFTER = 1.5;   // "previous line" restarts the current one after this long
 const CONFETTI_COUNT = 150;
 const HEART_COUNT = 8;
-const PERFORMER_COUNT = 4;
+const MAX_PERFORMER_COUNT = Math.max(...songs.map(s => s.cast.length));
 const LYRIC_SCROLL_PAUSE = 4000;  // ms to leave the lyric list alone after the user scrolls it
 
 const COUPLE_MODES = [
@@ -58,7 +58,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
 
   const show = {
     active: false,
-    ready: false,          // all four performers are on stage
+    ready: false,          // all performers are on stage
     failed: false,         // the last cast load failed
     playing: false,
     pending: false,        // waiting for audio.play() to resolve
@@ -101,8 +101,8 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   // Cast choices are remembered per song; the wedding song also accepts the older single-song pref.
   function savedCast(target) {
     const saved = prefs.casts?.[target.id] ?? (target.id === 'wedding' ? prefs.cast : null);
-    return Array.isArray(saved) && saved.length === PERFORMER_COUNT && saved.every(id => modelById(id))
-      ? saved
+    return Array.isArray(saved) && saved.length >= 4 && saved.length <= target.cast.length && saved.every(id => modelById(id))
+      ? [...saved, ...target.defaultCast.slice(saved.length)]
       : target.defaultCast;
   }
 
@@ -180,7 +180,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     <details class="panel-group">
       <summary>角色分配</summary>
       <div class="cast-map">
-        ${Array.from({ length: PERFORMER_COUNT }, (_, i) => `
+        ${Array.from({ length: MAX_PERFORMER_COUNT }, (_, i) => `
           <label><span data-cast-name="${i}"></span>
             <select data-cast="${i}">
               ${models.map(m => `<option value="${m.id}">${m.name} · ${m.format}</option>`).join('')}
@@ -398,9 +398,13 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     el.pairNames.innerHTML = song.couples
       ? `${names[0]} ♡ ${names[1]}<br>${names[2]} ♡ ${names[3]}`
       : `本曲無固定配對<br>可選「兩對牽手／抱抱」：${names[0]} × ${names[1]}、${names[2]} × ${names[3]}`;
-    castNameNodes.forEach((node, i) => { node.textContent = names[i]; });
+    castNameNodes.forEach((node, i) => { node.textContent = names[i] ?? ''; });
     const ids = savedCast(song);
-    castSelects.forEach((select, i) => { select.value = ids[i]; });
+    castSelects.forEach((select, i) => {
+      select.closest('label').hidden = i >= ids.length;
+      select.disabled = i >= ids.length;
+      select.value = ids[i] ?? '';
+    });
 
     const labelRoot = $('#cast-labels');
     labelRoot.replaceChildren();
@@ -504,7 +508,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   // Start card and play buttons
   // -------------------------------------------------------------------------
   function castProgress() {
-    const ids = castSelects.map(s => Number(s.value));
+    const ids = castSelects.slice(0, song.cast.length).map(s => Number(s.value));
     const unique = [...new Set(ids)];
     const done = unique.filter(id => (loadProgress.get(id) ?? 0) >= 1).length;
     const fraction = unique.reduce((sum, id) => sum + (loadProgress.get(id) ?? 0), 0) / unique.length;
@@ -830,7 +834,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     show.failed = false;
     refreshPlayButton();
 
-    const ids = castSelects.map(select => Number(select.value));
+    const ids = castSelects.slice(0, song.cast.length).map(select => Number(select.value));
     prefs.casts = { ...prefs.casts, [song.id]: ids };
     savePrefs({ casts: prefs.casts });
 
@@ -841,6 +845,13 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
       mixers.forEach(mixer => mixer?.stopAllAction());
       mixers.length = 0;
       dancers.length = 0;
+
+      while (performers.length > assets.length) group.remove(performers.pop());
+      while (performers.length < assets.length) {
+        const performer = new THREE.Group();
+        group.add(performer);
+        performers.push(performer);
+      }
 
       performers.forEach((performer, i) => {
         performer.clear();
@@ -866,7 +877,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   }
 
   function init() {
-    for (let i = 0; i < PERFORMER_COUNT; i++) {
+    for (let i = 0; i < song.cast.length; i++) {
       const performer = new THREE.Group();
       group.add(performer);
       performers.push(performer);
@@ -962,6 +973,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     const first = !show.chosen;
     show.chosen = true;
     pause();
+    show.ready = false;
     song = next;
     ({ chapters, lyrics, cues: originalCues } = song);
     savePrefs({ song: song.id });
@@ -1140,7 +1152,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
     });
 
     const skeletons = dancers.filter(d => d.supported).length;
-    const status = danceEnabled ? `${danceName || '整體走位'} · ${skeletons}/${PERFORMER_COUNT} 位骨架舞者` : '原始姿勢與走位';
+    const status = danceEnabled ? `${danceName || '整體走位'} · ${skeletons}/${song.cast.length} 位骨架舞者` : '原始姿勢與走位';
     if (status !== show.lastDanceStatus) {
       show.lastDanceStatus = status;
       el.danceStatus.textContent = status;
@@ -1150,7 +1162,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
 
   function updatePerformers(cue, action, danceEnabled) {
     performers.forEach((performer, i) => {
-      const pose = actorPose(i, show.time, cue);
+      const pose = actorPose(i, show.time, cue, song.cast.length);
       performer.position.set(pose.x, pose.y, pose.z);
       performer.rotation.set(0, pose.ry, pose.rz);
       performer.scale.setScalar(pose.scale);
@@ -1267,7 +1279,7 @@ export function createPerformance({ scene, camera, controls, actor, stage, ring,
   }
 
   function update(dt) {
-    if (!show.active) return;
+    if (!show.active || !show.ready) return;
     advanceClock(dt);
 
     const cue = currentCue();

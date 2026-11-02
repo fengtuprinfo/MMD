@@ -1,5 +1,5 @@
 // Song catalogue for the lyric theatre. Every song resolves to the same shape:
-// chapters (title/theme/action/lines), lyrics, per-line LRC cues and a four-person cast.
+// chapters (title/theme/action/lines), lyrics, per-line LRC cues and a song-specific cast.
 import weddingLrc from './wedding.lrc?raw';
 import { parseLrc } from './lrc.js';
 import { chapters, lyrics, cast, flattenLyrics } from './song-data.js';

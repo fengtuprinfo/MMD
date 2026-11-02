@@ -21,7 +21,15 @@ export const cast=[
 ];
 export const castNames=cast.map(({name})=>name);
 export const castModelIds=cast.map(({modelId})=>modelId);
-export function actorPose(index,time,cue){const beat=time*Math.PI,hop=Math.abs(Math.sin(beat));let x=[-2.4,-.8,.8,2.4][index],z=0,y=0,ry=0,rz=0,scale=.78;const action=cue.chapterData.action;
+export function actorPose(index,time,cue,count=4){const beat=time*Math.PI,hop=Math.abs(Math.sin(beat));let x=[-2.4,-.8,.8,2.4][index],z=0,y=0,ry=0,rz=0,scale=.78;const action=cue.chapterData.action;
+ // A wider cast shares the stage in staggered rows without overlapping the two leads.
+ if(count>4){
+  x=(index-(count-1)/2)*1.3;z=index%2?-.35:0;
+  if(action==='rally'||action==='dance'){x+=Math.sin(beat/2+index*.9)*.18;y=hop*.22;}
+  if(action==='jackpot')y=hop*(cue.line>=3?.3:.06);
+  ry=Math.sin(beat/2+index)*.2;rz=Math.sin(beat+index*.6)*.05;
+  return {x,y,z,ry,rz,scale};
+ }
  if(action==='tease'){x=[-.9,-2.8,.9,2.8][index];z=index%2?1.1:0;rz=index===2?Math.sin(beat)*.13:Math.sin(beat/2)*.035;}
  if(action==='proposal'){if(index<2){x=index===0?-.65:.65;ry=index===0?.35:-.35;y=cue.line===4?hop*.25:0;rz=cue.line>=5?Math.sin(beat/2)*.055:0;}else{x=index===2?-3:3;z=1.4;scale=.65;}}
  if(action==='dance'){x+=Math.sin(beat/2+index*.5)*.25;y=hop*.18;rz=Math.sin(beat+index*.4)*.065;ry=Math.sin(beat/2)*.25;}

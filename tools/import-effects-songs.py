@@ -17,7 +17,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Model ids (src/models.js): 5 牙妹 6 咕咕嘎嘎 7 喵白白 8 鯨魚娘 9 魚妹 10 鋒兄 11 塗哥 12 喵布布
-C = {'鋒兄': 10, '塗哥': 11, '牙妹': 5, '魚妹': 9, '咕咕嘎嘎': 6, '喵白白': 7, '鯨魚娘': 8, '喵布布': 12}
+C = {'鋒兄': 10, '塗哥': 11, '牙妹': 5, '魚妹': 9, '咕咕嘎嘎': 6, '喵白白': 7, '鯨魚娘': 8, '喵布布': 12, 'GPT 娘': 13}
 
 # Slot 2 is the lead: 'jackpot' chapters bring slots 2–3 to centre stage.
 SONGS = {
@@ -113,7 +113,7 @@ SONGS = {
         ],
     },
     's102': {
-        'cast': ['鋒兄', '喵布布', '塗哥', '牙妹'],
+        'cast': ['鋒兄', '喵布布', '塗哥', '牙妹', 'GPT 娘'],
         'outro': '— 謝幕 · 中獎是日常 —',
         'chapters': [
             ('招財喵 · 生日祝福', 'rally', [0], '🎂 鋒兄三十七歲生日快樂'),
