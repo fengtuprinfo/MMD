@@ -10,7 +10,7 @@ import * as THREE from 'three';
 import { createDancer } from '../dance.js';
 import { coupleCue, applyCouples } from '../couples.js';
 import { timedCue } from '../lrc.js';
-import { actorPose } from '../song-data.js';
+import { actorPose, stageOrder } from '../song-data.js';
 import { songs, songById } from '../songs.js';
 import { modelById, loadAsset, instantiateAsset } from '../models.js';
 import { createBackground, speedLines } from './bg.js';
@@ -454,8 +454,10 @@ function drawWindows(shot, t, look) {
     const gap = 22, w = (W - 112 - gap * (performers.length - 1)) / performers.length;
     return { x: 56 + i * (w + gap), y: 180 + (i % 2) * 20, w, h: 620, r: i % 2 ? .02 : -.02 };
   });
-  layout.forEach((rect, i) => {
-    const k = clamp((since - i * 0.12) / 0.45, 0, 1);
+  const order = stageOrder(performers.length);
+  layout.forEach((rect, slot) => {
+    const i = order[slot];
+    const k = clamp((since - slot * 0.12) / 0.45, 0, 1);
     const pop = k <= 0 ? 0 : 1 + 2.7 * Math.pow(k - 1, 3) + 1.7 * Math.pow(k - 1, 2);
     const out = smooth(leaving / 0.3);
     const scale = pop * out;

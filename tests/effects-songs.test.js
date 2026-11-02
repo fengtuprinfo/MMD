@@ -58,7 +58,11 @@ test('five-person jackpot cast stays finite, separated and inside the camera cle
         assert.ok(Object.values(pose).every(Number.isFinite));
         assert.ok(Math.abs(pose.x) + performerReach(pose.scale) + cameraSway < clearance);
       }
-      for (let i = 1; i < poses.length; i++) assert.ok(poses[i].x - poses[i - 1].x > .9);
+      const leftToRight = poses.map((pose, i) => ({ ...pose, i })).sort((a,b) => a.x-b.x);
+      assert.deepEqual(leftToRight.map(p => p.i), [1,3,0,2,4]);
+      assert.equal(poses[0].x, 0, 'Feng stays at center');
+      assert.equal(poses[0].z, poses[2].z, 'Tu stands beside Feng in the same row');
+      for (let i = 1; i < leftToRight.length; i++) assert.ok(leftToRight[i].x - leftToRight[i-1].x > .9);
     }
   }
 });

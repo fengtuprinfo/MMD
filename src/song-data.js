@@ -21,11 +21,13 @@ export const cast=[
 ];
 export const castNames=cast.map(({name})=>name);
 export const castModelIds=cast.map(({modelId})=>modelId);
+// Five-person jackpot lineup, left to right: Bu Bu, Gugugaga, Feng, Tu, GPT.
+export const stageOrder=count=>count===5?[1,3,0,2,4]:Array.from({length:count},(_,i)=>i);
 export function actorPose(index,time,cue,count=4){const beat=time*Math.PI,hop=Math.abs(Math.sin(beat));let x=[-2.4,-.8,.8,2.4][index],z=0,y=0,ry=0,rz=0,scale=.78;const action=cue.chapterData.action;
  // A wider cast shares the stage in staggered rows without overlapping the two leads.
  if(count>4){
-  x=(index-(count-1)/2)*1.3;z=index%2?-.35:0;
-  if(action==='rally'||action==='dance'){x+=Math.sin(beat/2+index*.9)*.18;y=hop*.22;}
+  x=(stageOrder(count).indexOf(index)-(count-1)/2)*1.3;z=index%2?-.35:0;
+  if(action==='rally'||action==='dance'){if(index!==0)x+=Math.sin(beat/2+index*.9)*.18;y=hop*.22;}
   if(action==='jackpot')y=hop*(cue.line>=3?.3:.06);
   ry=Math.sin(beat/2+index)*.2;rz=Math.sin(beat+index*.6)*.05;
   return {x,y,z,ry,rz,scale};
