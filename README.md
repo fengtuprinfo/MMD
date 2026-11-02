@@ -89,7 +89,7 @@ npm run dev
 
 重新匯入：`python3 tools/import-effects-songs.py <Effects 路徑>`，會複製音檔到 `public/audio/` 並產生 `src/effects-songs.js`；分幕標題與角色在腳本內編寫。
 
-《統一發票頭獎得主鋒兄威力彩頭獎得主塗哥》的中文、英文、日文、粵文版本由鋒兄、喵布布、塗哥、咕咕嘎嘎、GPT 娘五位角色演出。舞台與角色視窗由左至右為喵布布、咕咕嘎嘎、鋒兄、塗哥、GPT 娘：鋒兄固定站中央 C 位，塗哥站其右側相鄰位置。GPT 娘模型來自提供的 `gptmusume-pose.fbx`，含 33 根骨骼與蒙皮；PV 與歌詞劇場皆支援五人站位、骨架編舞和角色切換。PV 的角色視窗與謝幕名單只顯示角色名稱，不加檔名後綴。既有 Release MP4 為先前四人版本。
+《統一發票頭獎得主鋒兄威力彩頭獎得主塗哥》的中文、英文、日文、粵文版本由鋒兄、喵布布、塗哥、咕咕嘎嘎、GPT 娘五位角色演出。舞台與角色視窗由左至右為喵布布、咕咕嘎嘎、鋒兄、塗哥、GPT 娘：鋒兄固定站中央 C 位，塗哥站其右側相鄰位置。GPT 娘模型來自提供的 `gptmusume-pose.fbx`，含 33 根骨骼與蒙皮；PV 與歌詞劇場皆支援五人站位、骨架編舞和角色切換。PV 的角色視窗與謝幕名單只顯示角色名稱，不加檔名後綴。[五人新版 MP4 Release](https://github.com/goldshoot0720/MMD/releases/tag/pv-jackpot-five-cast-20261102) 包含這四個版本，先前四人影片仍保留於原有 Release。
 
 ## PV（每首歌的音樂影片）
 
@@ -118,3 +118,14 @@ npm run pv:compress                          # 每支壓到 92 MB 以下（原�
 渲染器依系統選用 GPU 後端：Windows 使用 Direct3D 11、macOS 使用 Metal、其他系統使用 Chrome 預設後端。
 
 原有完整 MP4：[GitHub PV Release](https://github.com/goldshoot0720/MMD/releases/tag/pv-v1)。新增三個語言版本已公開於[英・日・粵 MP4 Release](https://github.com/goldshoot0720/MMD/releases/tag/pv-multilang-20261101)。三支皆使用各自語言的舞台字卡，規格為 1920×1080、30 fps、H.264／AAC；檔名為 `pv10-s102-en.mp4`（英文）、`pv11-s102-ja.mp4`（日文）、`pv12-s102-yue.mp4`（粵文）。
+
+2026-11-02 的[五人新版 Release](https://github.com/goldshoot0720/MMD/releases/tag/pv-jackpot-five-cast-20261102) 僅重製此次變動的四個版本：
+
+| 版本 | 完整 MP4 | 長度 |
+| --- | --- | --- |
+| 中文 | [pv09-s102-five-cast.mp4](https://github.com/goldshoot0720/MMD/releases/download/pv-jackpot-five-cast-20261102/pv09-s102-five-cast.mp4) | 約 2:07 |
+| 英文 | [pv10-s102-en-five-cast.mp4](https://github.com/goldshoot0720/MMD/releases/download/pv-jackpot-five-cast-20261102/pv10-s102-en-five-cast.mp4) | 約 2:05 |
+| 日文 | [pv11-s102-ja-five-cast.mp4](https://github.com/goldshoot0720/MMD/releases/download/pv-jackpot-five-cast-20261102/pv11-s102-ja-five-cast.mp4) | 約 2:08 |
+| 粵文 | [pv12-s102-yue-five-cast.mp4](https://github.com/goldshoot0720/MMD/releases/download/pv-jackpot-five-cast-20261102/pv12-s102-yue-five-cast.mp4) | 約 2:16 |
+
+四支均為完整原曲、1920×1080、30 fps、H.264／AAC 192 kbps；已驗證完整解碼、音畫長度與 Release 檔案 SHA-256。影片對應提交 `02b5b84`，包含鋒兄 C 位、塗哥相鄰、咕咕嘎嘎與 GPT 娘，以及無 `.pet` 後綴的角色名稱。
